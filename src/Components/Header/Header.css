@@ -1,0 +1,38 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000;
+    padding: 10px 20px;
+    color: white;
+  }
+  
+  .header-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    height: 40px;
+    margin-right: 10px;
+  }
+  
+  .site-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+  
+  .header-right button {
+    background-color: #b4df49;
+    border: none;
+    padding: 8px 12px;
+    margin-left: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  .header-right button svg {
+    color: black;
+    font-size: 1rem;
+  }
+  
