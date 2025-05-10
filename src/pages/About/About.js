@@ -9,9 +9,7 @@ export default function AboutPage() {
       <main className="about-main">
         <h2 className="section-title">About Us</h2>
         <p className="description">
-          Metalworks Online Market is built on a passion for quality craftsmanship. We bring together
-          skilled makers and customers who appreciate authentic, handcrafted metal goods – all in one
-          trusted, easy-to-use platform.
+          Metalworks Online Market is built on a passion for quality craftsmanship. We bring together skilled makers and customers who appreciate authentic, handcrafted metal goods – all in one trusted, easy-to-use platform.
         </p>
       </main>
 
@@ -19,17 +17,14 @@ export default function AboutPage() {
         <div className="section">
           <h3 className="section-heading">Mission</h3>
           <p>
-            To connect skilled blacksmiths with customers worldwide by offering a trusted online marketplace
-            for high-quality, handcrafted metal goods. We aim to support traditional craftsmanship while delivering
-            exceptional value and service to our customers.
+            To connect skilled blacksmiths with customers worldwide by offering a trusted online marketplace for high-quality, handcrafted metal goods. We aim to support traditional craftsmanship while delivering exceptional value and service to our customers.
           </p>
         </div>
 
         <div className="section">
           <h3 className="section-heading">Vision</h3>
           <p>
-            To become the leading online destination for premium blacksmith products by fostering a community
-            built on authenticity, craftsmanship, and customer satisfaction.
+            To become the leading online destination for premium blacksmith products by fostering a community built on authenticity, craftsmanship, and customer satisfaction.
           </p>
         </div>
 
@@ -53,16 +48,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      <footer className="footer">
-        <div className="footer-links">
-          <a href="#">About Us</a>
-          <a href="#">Contact Us</a>
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Use</a>
-        </div>
-        <div className="copyright">Copyright ©2024 Blacksmith.</div>
-      </footer>
     </div>
   );
 }

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './Header.css';
-import logo from './Headercomponents/logo.png';
-import cartIcon from './Headercomponents/cart.png';
-import profileIcon from './Headercomponents/profile.png';
+import logo from './Headerassets/logo.png';
+import cartIcon from './Headerassets/cart.png';
+import profileIcon from './Headerassets/profile.png';
 import { FaSearch } from 'react-icons/fa';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 
