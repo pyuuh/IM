@@ -1,104 +1,149 @@
-.signup-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 32px 16px;
-  }
-  
-  .signup-card {
-    width: 100%;
-    max-width: 400px;
-    padding: 24px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .signup-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 24px;
-    text-align: center;
-  }
-  
-  .error-alert {
-    background-color: #fecaca;
-    border: 1px solid #ef4444;
-    color: #7f1d1d;
-    padding: 12px;
-    border-radius: 4px;
-    margin-bottom: 24px;
-  }
-  
-  .form-group {
-    margin-bottom: 16px;
-  }
-  
-  .name-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-  
-  .form-label {
-    display: block;
-    margin-bottom: 6px;
-    font-weight: 500;
-  }
-  
-  .form-input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #d1d5db;
-    border-radius: 4px;
-    font-size: 16px;
-  }
-  
-  .form-input:focus {
-    outline: none;
-    border-color: #ff3c00;
-    box-shadow: 0 0 0 2px rgba(255, 60, 0, 0.2);
-  }
-  
-  .error-message {
-    color: #dc2626;
-    font-size: 14px;
-    margin-top: 4px;
-  }
-  
-  .submit-button {
-    width: 100%;
-    background-color: #ff3c00;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-    margin-bottom: 16px;
-  }
-  
-  .submit-button:hover {
-    background-color: #e63500;
-  }
-  
-  .submit-button:disabled {
-    background-color: #d1d5db;
-    cursor: not-allowed;
-  }
-  
-  .form-footer {
-    text-align: center;
-    margin-top: 16px;
-  }
-  
-  .form-link {
-    color: #ff3c00;
-    text-decoration: none;
-  }
-  
-  .form-link:hover {
-    text-decoration: underline;
-  }
+/* Add these styles to your existing Login.css file */
+.password-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.guide-icon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.guide-tooltip {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 5px);
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  width: 250px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  font-size: 14px;
+  color: #333;
+  text-align: left;
+}
+
+/* Optional: Add a small arrow pointing up to the tooltip */
+.guide-tooltip:before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  right: 15px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #ccc;
+}
+
+.guide-tooltip:after {
+  content: '';
+  position: absolute;
+  top: -7px;
+  right: 15px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #fff;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 32px 16px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 24px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.error-alert {
+  background-color: #fecaca;
+  border: 1px solid #ef4444;
+  color: #7f1d1d;
+  padding: 12px;
+  border-radius: 4px;
+  margin-bottom: 24px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #ff3c00;
+  box-shadow: 0 0 0 2px rgba(255, 60, 0, 0.2);
+}
+
+.error-message {
+  color: #dc2626;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.submit-button {
+  width: 100%;
+  background-color: #ff3c00;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 16px;
+}
+
+.submit-button:hover {
+  background-color: #e63500;
+}
+
+.submit-button:disabled {
+  background-color: #d1d5db;
+  cursor: not-allowed;
+}
+
+.form-footer {
+  text-align: center;
+  margin-top: 16px;
+}
+
+.form-link {
+  color: #ff3c00;
+  text-decoration: none;
+}
+
+.form-link:hover {
+  text-decoration: underline;
+}

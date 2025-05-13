@@ -1,129 +1,180 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import './Login.css';
 
-const Login = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [usernameError, setUsernameError] = useState('');
-  const [passwordError, setPasswordError] = useState('');
+function useDismissBubble(setVisible) {
+  useEffect(() => {
+    const handleClick = () => {
+      setVisible(false);
+    };
 
-  const validateForm = () => {
-    let isValid = true;
+    document.addEventListener('click', handleClick);
+    return () => {
+      document.removeEventListener('click', handleClick);
+    };
+  }, [setVisible]);
+}
 
-    if (!username) {
-      setUsernameError('Username is required');
-      isValid = false;
-    } else {
-      setUsernameError('');
-    }
+const LoginForm = () => {
+  const [formData, setFormData] = useState({
+    email: '',
+    password: ''
+  });
+  
+  const [errors, setErrors] = useState({
+    email: '',
+    password: ''
+  });
+  
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-    if (!password) {
-      setPasswordError('Password is required');
-      isValid = false;
-    } else {
-      setPasswordError('');
-    }
-
-    return isValid;
+   const [isBubbleVisible, setIsBubbleVisible] = useState(true); // 🟢 Bubble state
+  useDismissBubble(setIsBubbleVisible);
+  
+  const validateEmail = (email) => {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  };
+  
+  const validatePassword = (password) => {
+    // Password must be at least 8 characters long and contain at least one number and one letter
+    const re = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    return re.test(String(password));
+  };
+  
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+    
+    // Clear error when typing
+    setErrors({
+      ...errors,
+      [name]: ''
+    });
   };
 
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    if (!validateForm()) {
-      return;
-    }
-
-    setIsLoading(true);
-    setError(null);
+    // Validate form
+    let newErrors = {
+      email: '',
+      password: ''
+    };
     
-    try {
-      // PHP integration - This would be replaced with your actual PHP endpoint
-      const response = await fetch('api/login.php', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ username, password }),
-      });
+    if (!formData.email) {
+      newErrors.email = 'Email is required';
+    } else if (!validateEmail(formData.email)) {
+      newErrors.email = 'Please enter a valid email';
+    }
+    
+    if (!formData.password) {
+      newErrors.password = 'Password is required';
+    } else if (!validatePassword(formData.password)) {
+      newErrors.password = 'Password must be at least 8 characters with at least one letter and one number';
+    }
+    
+    setErrors(newErrors);
+    
+    // If no errors, submit form
+    if (!newErrors.email && !newErrors.password) {
+      setIsSubmitting(true);
       
-      const data = await response.json();
-      
-      if (!response.ok) {
-        throw new Error(data.message || 'Login failed');
+      try {
+        // Send data to PHP backend
+        const response = await fetch('login.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+          // Redirect or handle successful login
+          window.location.href = '/dashboard';
+        } else {
+          // Handle error response from server
+          setErrors({
+            ...errors,
+            server: data.message || 'Login failed. Please try again.'
+          });
+        }
+      } catch (error) {
+        setErrors({
+          ...errors,
+          server: 'Connection error. Please try again later.'
+        });
+      } finally {
+        setIsSubmitting(false);
       }
-      
-      // Handle successful login
-      console.log('Login successful', data);
-      
-      // Redirect or update state as needed
-      window.location.href = '/';
-      
-    } catch (err) {
-      console.error('Login error:', err);
-      setError(err instanceof Error ? err.message : 'Failed to login. Please try again.');
-    } finally {
-      setIsLoading(false);
     }
   };
-
+  
   return (
-    <div className="login-container">
-      <div className="login-card">
-        <h1 className="login-title">Login</h1>
+    <div className="login-page-content">
+      <div className="welcome-message">Welcome back adventurer!</div>
+      
+      <div className="login-form-container">
+        <h2>Please Login</h2>
         
-        {error && (
-          <div className="error-alert">
-            {error}
-          </div>
-        )}
-        
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="login-form">
           <div className="form-group">
-            <label className="form-label">Username</label>
-            <input 
+            <input
               type="text"
-              className="form-input"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Email"
+              className={errors.email ? 'input-error' : ''}
             />
-            {usernameError && <p className="error-message">{usernameError}</p>}
+            {errors.email && <div className="error-message">{errors.email}</div>}
           </div>
           
           <div className="form-group">
-            <label className="form-label">Password</label>
-            <input 
+            <input
               type="password"
-              className="form-input"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              placeholder="Password"
+              className={errors.password ? 'input-error' : ''}
             />
-            {passwordError && <p className="error-message">{passwordError}</p>}
+            {errors.password && <div className="error-message">{errors.password}</div>}
           </div>
+          
+          {errors.server && <div className="server-error">{errors.server}</div>}
           
           <button 
             type="submit" 
             className="submit-button" 
-            disabled={isLoading}
+            disabled={isSubmitting}
           >
-            {isLoading ? 'Logging in...' : 'Login'}
+            {isSubmitting ? 'Logging in...' : 'Submit'}
           </button>
           
-          <div className="form-footer">
-            <p>
-              Don't have an account?{' '}
-              <Link to="/signup" className="form-link">
-                Sign up
-              </Link>
-            </p>
+          <div className="signup-link">
+            <a href="/signup">Sign up instead</a>
           </div>
         </form>
+      </div>
+      
+      <div className="character-container">
+          {isBubbleVisible && (
+        <div className="character-bubble">
+          <p>Login to discover great items!</p>
+          <p className="bubble-footnote">Click anywhere to exit.</p>
+        </div>
+        )}
+        <div className="pixel-character"></div>
       </div>
     </div>
   );
 };
 
-export default Login;
+export default LoginForm;
