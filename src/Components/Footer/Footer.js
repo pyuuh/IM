@@ -1,9 +1,8 @@
 import React from "react";
 import "./Footer.css";
-import fbIcon from "./footerassets/fb.png";
-import instaIcon from "./footerassets/insta.png";
-import linkedinIcon from "./footerassets/linkedin.png";
-import payIcon from "./footerassets/pay.png";
+import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
+import bankIcon from "./footerassets/bank.svg";
+import cardIcon from "./footerassets/card.svg";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -23,7 +22,14 @@ const Footer = () => {
           </div>
           <div className="footer-column">
             <h4>We accept</h4>
-            <img src={payIcon} alt="Pay" className="payment-icon" />
+            <div className="payment-icons">
+              <a href="https://yourbanklink.com" target="_blank" rel="noreferrer">
+                <img src={bankIcon} alt="Bank Transfer" className="payment-icon" />
+              </a>
+              <a href="https://yourcardlink.com" target="_blank" rel="noreferrer">
+                <img src={cardIcon} alt="Credit Card" className="payment-icon" />
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -31,16 +37,16 @@ const Footer = () => {
       <div className="footer-bottom">
         <div className="social-icons">
           <a href="https://facebook.com" target="_blank" rel="noreferrer">
-            <img src={fbIcon} alt="Facebook" />
+            <FaFacebook size={28} />
           </a>
           <a href="https://instagram.com" target="_blank" rel="noreferrer">
-            <img src={instaIcon} alt="Instagram" />
+            <FaInstagram size={28} />
           </a>
           <a href="https://linkedin.com" target="_blank" rel="noreferrer">
-            <img src={linkedinIcon} alt="LinkedIn" />
+            <FaLinkedin size={28} />
           </a>
         </div>
-        <p>Copyright ©2024 Blacksmith.</p>
+        <p>Copyright ©2024 Metalworks.</p>
       </div>
     </footer>
   );

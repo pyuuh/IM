@@ -1,10 +1,25 @@
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #006400; /* Dark green */
-  padding: 10px 20px;
+  background-color: #000000;
+  padding: 15px 0px;
   color: white;
+}
+
+body {
+  padding-top: 60px;
+}
+
+.header-left,
+.header-right {
+  padding: 0 15px;
 }
 
 .header-left {
@@ -55,7 +70,7 @@
 .search-bar button {
   background: none;
   border: none;
-  color: #006400;
+  color: #616F39;
   cursor: pointer;
   font-size: 16px;
   padding: 4px;
@@ -75,8 +90,18 @@
 }
 
 .cart-icon {
-  width: 24px;
+  width: 28px;
+  height: 28px;
+  stroke: white;
+  transition: stroke 0.3s ease, filter 0.3s ease, transform 0.3s ease;
 }
+
+.cart-btn:hover .cart-icon {
+  stroke: #00FF7F; /* Bright green */
+  filter: drop-shadow(0 0 5px #00FF7F);
+  transform: scale(1.2);
+}
+
 
 .profile-container {
   position: relative;
@@ -90,7 +115,14 @@
 
 .profile-icon {
   width: 28px;
+  height: 28px;
   border-radius: 50%;
+  transition: stroke 0.3s ease, filter 0.3s ease, transform 0.3s ease;
+}
+
+.profile-icon:hover {
+  box-shadow: 0 0 10px #00ff00; 
+  filter: drop-shadow(0 0 5px #c0ffe0);
 }
 
 /* Updated dropdown styling */
@@ -132,7 +164,7 @@
 .logout-btn {
   width: 100%;
   padding: 10px;
-  background: #006400;
+  background: #616F39;
   color: white;
   border: none;
   border-radius: 6px;

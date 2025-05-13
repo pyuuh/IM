@@ -1,6 +1,8 @@
 import React from "react"; 
 import "./About.css";
-import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
+import fbIcon from "./Aboutassets/fb.png";
+import instaIcon from "./Aboutassets/insta.png";
+import linkedinIcon from "./Aboutassets/linkedin.png";
 
 export default function AboutPage() {
   return (
@@ -41,10 +43,28 @@ export default function AboutPage() {
 
         <div className="section">
           <h3 className="section-heading">Social Media:</h3>
-          <div className="social-icons">
-            <a href="https://facebook.com/metalworksfb" target="_blank" rel="noopener noreferrer"><FaFacebook /></a>
-            <a href="https://instagram.com/metalworksig" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
-            <a href="https://linkedin.com/in/metalworks" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
+          <div className="about-socials">
+            <div className="social-item">
+            <img src={fbIcon} alt="Facebook" className="social-icon" />
+              <div className="social-text">
+                <p>Facebook</p>
+                <p>@metalworksfb</p>
+              </div>
+            </div>
+            <div className="social-item">
+            <img src={instaIcon} alt="Instagram" className="social-icon" />
+              <div className="social-text">
+                <p>Instagram</p>
+                <p>@metalworksig</p>
+              </div>
+            </div>
+            <div className="social-item">
+            <img src={linkedinIcon} alt="LinkedIn" className="social-icon" />
+              <div className="social-text">
+                <p>LinkedIn</p>
+                <p>@metalworks</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>

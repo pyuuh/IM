@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './Header.css';
 import logo from './Headerassets/logo.png';
-import cartIcon from './Headerassets/cart.png';
-import profileIcon from './Headerassets/profile.png';
+import avatarIcon from './Headerassets/avatar.svg';
+import { ReactComponent as CartIcon } from './Headerassets/cart.svg';
 import { FaSearch } from 'react-icons/fa';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 
@@ -60,12 +60,12 @@ const Header = () => {
         </form>
 
         <button className="cart-btn" onClick={handleCartClick}>
-          <img src={cartIcon} alt="Cart" className="cart-icon" />
+          <CartIcon className="cart-icon" />
         </button>
 
         <div className="profile-container">
           <button className="profile-btn" onClick={() => setShowProfile(!showProfile)}>
-            <img src={profileIcon} alt="Profile" className="profile-icon" />
+            <img src={avatarIcon} alt="Profile" className="profile-icon" />
           </button>
           {showProfile && (
             <div className="profile-dropdown">
