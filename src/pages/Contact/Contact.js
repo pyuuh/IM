@@ -1,6 +1,9 @@
 import React from 'react';
 import './Contact.css';
 
+import locationIcon from './Contactassets/location.svg';
+import callIcon from './Contactassets/call.svg';
+
 const Contact = () => {
   return (
     <div className="contact-container">
@@ -27,11 +30,11 @@ const Contact = () => {
         <div className="contact-info">
           <h3>Head Office</h3>
           <div className="info-item">
-            <span className="icon">📍</span>
+            <img src={locationIcon} alt="Location" className="icon" />
             <p>Lapasan, Cagayan De Oro City,<br />Philippines (Postal 9000)</p>
           </div>
           <div className="info-item">
-            <span className="icon">📞</span>
+            <img src={callIcon} alt="Phone" className="icon" />
             <p>+6396528651640</p>
           </div>
         </div>

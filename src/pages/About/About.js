@@ -11,7 +11,8 @@ export default function AboutPage() {
       <main className="about-main">
         <h2 className="section-title">About Us</h2>
         <p className="description">
-          Metalworks Online Market is built on a passion for quality craftsmanship. We bring together skilled makers and customers who appreciate authentic, handcrafted metal goods – all in one trusted, easy-to-use platform.
+          Metalworks Online Market is built on a passion for quality craftsmanship. 
+          We bring together skilled makers and customers who appreciate authentic, handcrafted metal goods – all in one trusted, easy-to-use platform.
         </p>
       </main>
 

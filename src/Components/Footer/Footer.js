@@ -23,10 +23,10 @@ const Footer = () => {
           <div className="footer-column">
             <h4>We accept</h4>
             <div className="payment-icons">
-              <a href="https://yourbanklink.com" target="_blank" rel="noreferrer">
+              <a href="https://paythroughbank.com" target="_blank" rel="noreferrer">
                 <img src={bankIcon} alt="Bank Transfer" className="payment-icon" />
               </a>
-              <a href="https://yourcardlink.com" target="_blank" rel="noreferrer">
+              <a href="https://paythroughcard.com" target="_blank" rel="noreferrer">
                 <img src={cardIcon} alt="Credit Card" className="payment-icon" />
               </a>
             </div>
@@ -36,13 +36,13 @@ const Footer = () => {
 
       <div className="footer-bottom">
         <div className="social-icons">
-          <a href="https://facebook.com" target="_blank" rel="noreferrer">
+          <a href="https://metalworksfacebook.com" target="_blank" rel="noreferrer">
             <FaFacebook size={28} />
           </a>
-          <a href="https://instagram.com" target="_blank" rel="noreferrer">
+          <a href="https://metalworksinstagram.com" target="_blank" rel="noreferrer">
             <FaInstagram size={28} />
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noreferrer">
+          <a href="https://metalworkslinkedin.com" target="_blank" rel="noreferrer">
             <FaLinkedin size={28} />
           </a>
         </div>

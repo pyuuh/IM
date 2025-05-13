@@ -46,6 +46,9 @@
     background-color: #6d8c45;
   }
   
+
+
+
   .section-title {
     font-size: 28px;
     margin-bottom: 16px;
@@ -56,15 +59,6 @@
     line-height: 1.6;
     text-align: justify;
   }  
-  
-  .section-title {
-    font-size: 28px;
-    margin-bottom: 16px;
-  }
-  
-  .description {
-    max-width: 600px;
-  }
   
   /* Content Sections */
   .content-section {
