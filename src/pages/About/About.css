@@ -1,0 +1,137 @@
+/* General Styling */
+.about-page {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+  }
+  
+  /* Header */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background-color: #2c430f;
+    border-bottom: 1px solid #444;
+  }
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .logo {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .title {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .search-box {
+    padding: 6px 10px;
+    border-radius: 4px;
+    border: none;
+    font-size: 14px;
+    color: black;
+  }
+  
+  /* Main Section */
+  .about-main {
+    padding: 40px 40px;
+    background-color: #6d8c45;
+  }
+  
+
+
+
+  .section-title {
+    font-size: 28px;
+    margin-bottom: 16px;
+  }
+  
+  .description {
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: justify;
+  }  
+  
+  /* Content Sections */
+  .content-section {
+    padding: 40px 20px;
+    background-color: black;
+  }
+  
+  .section {
+    margin-bottom: 32px;
+  }
+  
+  .section-heading {
+    font-size: 22px;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  
+  .contact-list li {
+    margin-bottom: 8px;
+  }
+  
+  /* Social Media */
+  .social-icons {
+    display: flex;
+    gap: 12px;
+    font-size: 20px;
+  }
+
+  .about-socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    margin-top: 1rem;
+  }
+  
+  .social-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .social-icon {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .social-text p {
+    margin: 0;
+    color: white;
+    font-size: 16px;
+    line-height: 1.4;
+  }  
+  
+  /* Footer */
+  .footer {
+    background-color: #6d8c45;
+    padding: 16px;
+    text-align: center;
+    font-size: 14px;
+    color: white;
+  }
+  
+  .footer-links {
+    margin-bottom: 8px;
+  }
+  
+  .footer-links a {
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .footer-links a:hover {
+    text-decoration: underline;
+  }
+  
