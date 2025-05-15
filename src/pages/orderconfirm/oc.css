@@ -1,0 +1,166 @@
+.confirmation-page {
+  font-family: 'Arial', sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  color: #333;
+}
+
+.confirmation-container {
+  margin: 20px 0;
+}
+
+.confirmation-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.confirmation-header {
+  margin-bottom: 30px;
+}
+
+.confirmation-header h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.confirmation-header p {
+  margin: 5px 0;
+  color: #555;
+}
+
+.support-text {
+  font-style: italic;
+  margin-top: 15px !important;
+}
+
+.order-summary {
+  margin: 25px 0;
+}
+
+.order-summary h3, .order-details h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+}
+
+.order-summary table {
+  width: 100%;
+}
+
+.order-summary td {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.total-row td {
+  font-weight: bold;
+  border-bottom: none;
+  padding-top: 12px;
+}
+
+.order-details {
+  margin-top: 30px;
+}
+
+.shipping-method {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.shipping-address, .arrival-estimate {
+  margin: 5px 0;
+  color: #555;
+}
+
+.order-item {
+  margin: 15px 0;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.item-name {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.item-details {
+  display: flex;
+  justify-content: space-between;
+  color: #555;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 15px;
+  margin: 25px 0;
+}
+
+.print-button, .cancel-button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.print-button {
+  background-color: #000;
+  color: white;
+}
+
+.print-button:hover {
+  background-color: #333;
+}
+
+.cancel-button {
+  background-color: #f5f5f5;
+  color: #d32f2f;
+}
+
+.cancel-button:hover {
+  background-color: #e0e0e0;
+}
+
+.additional-info {
+  margin-top: 40px;
+}
+
+.additional-info h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.additional-info ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.additional-info li {
+  font-size: 14px;
+  color: #666;
+  cursor: pointer;
+}
+
+.additional-info li:hover {
+  text-decoration: underline;
+}
+
+@media print {
+  .action-buttons, .additional-info, header, footer {
+    display: none;
+  }
+  
+  .confirmation-card {
+    box-shadow: none;
+    padding: 0;
+  }
+}

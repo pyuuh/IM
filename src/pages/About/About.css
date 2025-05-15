@@ -1,6 +1,6 @@
 /* General Styling */
 .about-page {
-    background-color: black;
+    background-image: url('./Aboutassets/yee.jpg');
     color: white;
     font-family: Arial, sans-serif;
     min-height: 100vh;
@@ -15,7 +15,7 @@
     background-color: #2c430f;
     border-bottom: 1px solid #444;
   }
-  
+
   .logo-container {
     display: flex;
     align-items: center;
@@ -63,7 +63,6 @@
   /* Content Sections */
   .content-section {
     padding: 40px 20px;
-    background-color: black;
   }
   
   .section {

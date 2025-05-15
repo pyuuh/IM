@@ -21,7 +21,7 @@
 
 /* Main content container */
 .login-page-content {
-  width: 100%;
+ width: 100%;
   background-image: url('../../assets/bg1.png');
   display: flex;
   flex-direction: column;
@@ -46,7 +46,7 @@
 
 /* Form container */
 .login-form-container {
-  background-image: url('../../assets/textbox.PNG');
+   background-image: url('../../assets/textbox.PNG');
   background-repeat: no-repeat;        
   background-size: cover;              
   background-position: center; 
