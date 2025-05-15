@@ -43,14 +43,13 @@
 
 /* Form container */
 .login-form-container {
-  background-color: var(--form-bg);
+  background-image: url('./Login_components/buttonn.PNG');
   border: 4px solid var(--form-border);
   padding: 1.5rem;
   width: 100%;
-  max-width: 400px;
   position: relative;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  z-index: 2;
+  
   image-rendering: pixelated;
 }
 
