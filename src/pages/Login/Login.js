@@ -116,7 +116,7 @@ const LoginForm = () => {
     }
   };
   
-  return (
+   return (
     <div className="login-page-content">
       <div className="welcome-message">Welcome back adventurer!</div>
       
@@ -150,14 +150,15 @@ const LoginForm = () => {
           
           {errors.server && <div className="server-error">{errors.server}</div>}
           
-          <button 
-            type="submit" 
-            className="submit-button" 
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? 'Logging in...' : 'Submit'}
-          </button>
-          
+          <div className="button-wrapper">
+            <button 
+              type="submit" 
+              className="submit-button" 
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? 'Logging in...' : 'Submit'}
+            </button>
+          </div>
           <div className="signup-link">
             <a href="/signup">Sign up instead</a>
           </div>
@@ -165,11 +166,11 @@ const LoginForm = () => {
       </div>
       
       <div className="character-container">
-          {isBubbleVisible && (
-        <div className="character-bubble">
-          <p>Login to discover great items!</p>
-          <p className="bubble-footnote">Click anywhere to exit.</p>
-        </div>
+        {isBubbleVisible && (
+          <div className="character-bubble">
+            <p>Login to discover great items!</p>
+            <p className="bubble-footnote">Click anywhere to exit.</p>
+          </div>
         )}
         <div className="pixel-character"></div>
       </div>

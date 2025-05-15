@@ -1,5 +1,9 @@
-/* LoginForm.css - Clean version */
-
+@font-face {
+  font-family: 'MyFont';
+  src: url('../../assets/font/static/PixelifySans-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 /* Core color variables */
 :root {
@@ -18,7 +22,7 @@
 /* Main content container */
 .login-page-content {
   width: 100%;
-  background-image: url('./Login_components/1.png');
+  background-image: url('../../assets/bg1.png');
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,7 +30,7 @@
   padding: 2rem 0;
   position: relative;
   min-height: 600px;
-  font-family: 'VT323', monospace;
+  font-family: 'MyFont', sans-serif;
   image-rendering: pixelated;
 }
 
@@ -42,94 +46,120 @@
 
 /* Form container */
 .login-form-container {
-  background-image: url('./Login_components/buttonn.PNG');
-  border: 4px solid var(--form-border);
+  background-image: url('../../assets/textbox.PNG');
+  background-repeat: no-repeat;        
+  background-size: cover;              
+  background-position: center; 
   padding: 1.5rem;
-  width: 100%;
+  width: 46%;
   position: relative;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  
-  image-rendering: pixelated;
 }
 
 /* Form header */
 .login-form-container h2 {
+  margin-top: 30px;
+  margin-bottom: 5px;
   text-align: center;
   font-size: 1.8rem;
-  margin-bottom: 1.5rem;
   color: var(--text-dark);
   font-weight: normal;
 }
 
 /* Form fields */
 .form-group {
-  margin-bottom: 1rem;
+  margin-left: 70px;
+  margin-bottom: 100px;
 }
 
 .login-form input {
-  width: 370px;
-  padding: 0.8rem;
-  border: 2px solid var(--input-border);
+  width: 320px;
+  height: 30px;
+  margin: 0px;
   background-color: var(--input-bg);
   color: var(--text-dark);
-  font-family: 'VT323', monospace;
+  font-family: 'MyFont', monospace;
   font-size: 1.2rem;
   outline: none;
 }
 
 /* Submit button */
 .submit-button {
-  width: 100%;
-  padding: 0.8rem;
+  width: 100px !important; 
+  margin: 0 auto; 
   background-color: var(--btn-bg);
   color: var(--text-light);
   border: none;
-  font-family: 'VT323', monospace;
+  border-radius: 4px; 
+  font-family: 'MyFont', monospace;
   font-size: 1.2rem;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, transform 0.1s;
+  margin-top: 1px;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2); 
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: center;
   margin-top: 0.5rem;
 }
 
 .submit-button:hover {
   background-color: var(--btn-hover);
+  transform: translateY(-2px); 
+}
+
+.submit-button:active {
+  transform: translateY(1px); /* Press down effect when clicked */
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
 }
 
 .submit-button:disabled {
   background-color: #888;
   cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 
 /* Form validation */
 .login-form input.input-error {
-  border-color: #c13838;
+  border: 2px solid #c13838;
 }
 
 .error-message {
   color: #c13838;
   font-size: 0.9rem;
   margin-top: 0.3rem;
+  font-weight: bold;
 }
 
 .server-error {
   color: #c13838;
   text-align: center;
   margin-bottom: 1rem;
+  font-weight: bold;
+  background-color: rgba(255, 220, 220, 0.7);
+  padding: 0.5rem;
+  border-radius: 4px;
 }
 
 /* Sign up link */
 .signup-link {
   text-align: center;
-  margin-top: 1rem;
-  font-family: 'VT323', monospace;
+  margin-top: 10px;
+  font-family: 'MyFont', monospace;
 }
 
 .signup-link a {
   color: var(--text-dark);
   text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s;
 }
 
 .signup-link a:hover {
+  color: var(--btn-bg);
   text-decoration: underline;
 }
 
@@ -145,13 +175,25 @@
 }
 
 .character-bubble {
-  background-color: white;
-  border: 3px solid #000;
-  border-radius: 4px;
+  background-image: url('../../assets/bubble.png');
+  background-size: 100% 100%;  /* Makes the image cover the entire element */
+  background-repeat: no-repeat;
+  background-position: center;
   padding: 1rem;
   position: relative;
   margin-bottom: 1rem;
-  max-width: 250px;
+  width: 100%;
+  height: 100px;
+  animation: bobbing 2s infinite ease-in-out;
+}
+
+.character-bubble p {
+  margin-right: 10px;
+}
+
+@keyframes bobbing {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
 }
 
 .character-bubble:after {
@@ -163,7 +205,6 @@
   height: 0;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-top: 10px solid #000;
 }
 
 .character-bubble p {
@@ -180,7 +221,7 @@
 .pixel-character {
   width: 160px;
   height: 160px;
-  background-image: url('./Login_components/guide.png');
+  background-image: url('../../assets/guide.png');
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -189,6 +230,18 @@
 @media (max-width: 768px) {
   .welcome-message {
     font-size: 2rem;
+  }
+  
+  .login-form-container {
+    width: 80%;
+  }
+  
+  .form-group {
+    margin-left: 10%;
+  }
+  
+  .login-form input {
+    width: 90%;
   }
   
   .character-container {
