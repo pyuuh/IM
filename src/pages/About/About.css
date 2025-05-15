@@ -42,18 +42,23 @@
   
   /* Main Section */
   .about-main {
-    padding: 40px 20px;
+    padding: 40px 40px;
     background-color: #6d8c45;
   }
   
+
+
+
   .section-title {
     font-size: 28px;
     margin-bottom: 16px;
   }
   
   .description {
-    max-width: 600px;
-  }
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: justify;
+  }  
   
   /* Content Sections */
   .content-section {
@@ -81,6 +86,31 @@
     gap: 12px;
     font-size: 20px;
   }
+
+  .about-socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    margin-top: 1rem;
+  }
+  
+  .social-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .social-icon {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .social-text p {
+    margin: 0;
+    color: white;
+    font-size: 16px;
+    line-height: 1.4;
+  }  
   
   /* Footer */
   .footer {

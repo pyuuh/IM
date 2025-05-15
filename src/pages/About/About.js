@@ -1,6 +1,8 @@
 import React from "react"; 
 import "./About.css";
-import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
+import fbIcon from "./Aboutassets/fb.png";
+import instaIcon from "./Aboutassets/insta.png";
+import linkedinIcon from "./Aboutassets/linkedin.png";
 
 export default function AboutPage() {
   return (
@@ -9,9 +11,8 @@ export default function AboutPage() {
       <main className="about-main">
         <h2 className="section-title">About Us</h2>
         <p className="description">
-          Metalworks Online Market is built on a passion for quality craftsmanship. We bring together
-          skilled makers and customers who appreciate authentic, handcrafted metal goods – all in one
-          trusted, easy-to-use platform.
+          Metalworks Online Market is built on a passion for quality craftsmanship. 
+          We bring together skilled makers and customers who appreciate authentic, handcrafted metal goods – all in one trusted, easy-to-use platform.
         </p>
       </main>
 
@@ -19,17 +20,14 @@ export default function AboutPage() {
         <div className="section">
           <h3 className="section-heading">Mission</h3>
           <p>
-            To connect skilled blacksmiths with customers worldwide by offering a trusted online marketplace
-            for high-quality, handcrafted metal goods. We aim to support traditional craftsmanship while delivering
-            exceptional value and service to our customers.
+            To connect skilled blacksmiths with customers worldwide by offering a trusted online marketplace for high-quality, handcrafted metal goods. We aim to support traditional craftsmanship while delivering exceptional value and service to our customers.
           </p>
         </div>
 
         <div className="section">
           <h3 className="section-heading">Vision</h3>
           <p>
-            To become the leading online destination for premium blacksmith products by fostering a community
-            built on authenticity, craftsmanship, and customer satisfaction.
+            To become the leading online destination for premium blacksmith products by fostering a community built on authenticity, craftsmanship, and customer satisfaction.
           </p>
         </div>
 
@@ -46,23 +44,31 @@ export default function AboutPage() {
 
         <div className="section">
           <h3 className="section-heading">Social Media:</h3>
-          <div className="social-icons">
-            <a href="https://facebook.com/metalworksfb" target="_blank" rel="noopener noreferrer"><FaFacebook /></a>
-            <a href="https://instagram.com/metalworksig" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
-            <a href="https://linkedin.com/in/metalworks" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
+          <div className="about-socials">
+            <div className="social-item">
+            <img src={fbIcon} alt="Facebook" className="social-icon" />
+              <div className="social-text">
+                <p>Facebook</p>
+                <p>@metalworksfb</p>
+              </div>
+            </div>
+            <div className="social-item">
+            <img src={instaIcon} alt="Instagram" className="social-icon" />
+              <div className="social-text">
+                <p>Instagram</p>
+                <p>@metalworksig</p>
+              </div>
+            </div>
+            <div className="social-item">
+            <img src={linkedinIcon} alt="LinkedIn" className="social-icon" />
+              <div className="social-text">
+                <p>LinkedIn</p>
+                <p>@metalworks</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
-
-      <footer className="footer">
-        <div className="footer-links">
-          <a href="#">About Us</a>
-          <a href="#">Contact Us</a>
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Use</a>
-        </div>
-        <div className="copyright">Copyright ©2024 Blacksmith.</div>
-      </footer>
     </div>
   );
 }
