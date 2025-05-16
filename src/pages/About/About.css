@@ -1,136 +1,165 @@
-/* General Styling */
+@font-face {
+  font-family: 'MyFont';
+  src: url('../../assets/font/static/PixelifySans-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .about-page {
-    background-image: url('./Aboutassets/yee.jpg');
-    color: white;
-    font-family: Arial, sans-serif;
-    min-height: 100vh;
-  }
-  
-  /* Header */
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px;
-    background-color: #2c430f;
-    border-bottom: 1px solid #444;
-  }
+  padding: 50px;
+  font-family: 'MyFont';
+  background-image: url('../../assets/bg2.png');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center; 
+}
 
-  .logo-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .logo {
-    width: 40px;
-    height: 40px;
-  }
-  
-  .title {
-    font-size: 20px;
-    font-weight: bold;
-  }
-  
-  .search-box {
-    padding: 6px 10px;
-    border-radius: 4px;
-    border: none;
-    font-size: 14px;
-    color: black;
-  }
-  
-  /* Main Section */
-  .about-main {
-    padding: 40px 40px;
-    background-color: #6d8c45;
-  }
-  
+.mission-box,
+.vision-box,
+.contact-box,
+.social-box {
+  border: 12px solid transparent; /* thickness of your pixel border */
+  border-image: url('../../assets/bg2.png') 12 round;
+  image-rendering: pixelated; /* keeps border crisp */
+  background-color: rgba(62, 67, 46, 0.52);
+  border-radius: 10px; /* optional */
+  padding: 20px;
+  text-align: center; /* Default text center for these containers */
+}
+
+.about-main {
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+/* Center all h3 headings */
+.section-heading {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.description {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Mission and Vision Side-by-Side */
+.mission-vision-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.mission-box,
+.vision-box {
+  flex: 1;
+  min-width: 280px;
+}
+
+/* Contact and Social Media Container */
+.contact-social-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.contact-box {
+  flex: 1;
+  min-width: 280px;
+  text-align: left; /* left align contact details text */
+}
+
+.social-box {
+  flex: 1;
+  min-width: 280px;
+  text-align: center; /* center container */
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  line-height: 1.8;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Socials - 2 columns grid */
+.about-socials {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  justify-items: center; /* centers each social item horizontally */
+  margin-top: 10px;
+}
+
+/* Make social items clickable links with flex layout */
+.about-socials a.social-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  text-decoration: none;
+  width: 100%;
+  max-width: 280px;
+}
+
+/* Icon styles */
+.social-icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: 20px;
+  display: block;
+}
 
 
+/* Text next to icon left aligned */
+.social-text {
+  text-align: left;
+  flex: 1;
+}
 
-  .section-title {
-    font-size: 28px;
-    margin-bottom: 16px;
-  }
-  
-  .description {
-    font-size: 16px;
-    line-height: 1.6;
-    text-align: justify;
-  }  
-  
-  /* Content Sections */
-  .content-section {
-    padding: 40px 20px;
-  }
-  
-  .section {
-    margin-bottom: 32px;
-  }
-  
-  .section-heading {
-    font-size: 22px;
-    margin-bottom: 8px;
-    font-weight: 600;
-  }
-  
-  .contact-list li {
-    margin-bottom: 8px;
-  }
-  
-  /* Social Media */
-  .social-icons {
-    display: flex;
-    gap: 12px;
-    font-size: 20px;
+.social-text p {
+  margin: 0;
+  line-height: 1.4;
+  color: inherit;
+}
+
+.about-socials a.social-item:hover .social-icon {
+  filter: brightness(1.2);
+  transform: scale(1.1);
+  transition: all 0.3s ease;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .mission-vision-container,
+  .contact-social-container {
+    flex-direction: column;
   }
 
   .about-socials {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 3rem;
-    margin-top: 1rem;
+    grid-template-columns: 1fr; /* stack social items vertically on small screens */
   }
-  
-  .social-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-  
-  .social-icon {
-    width: 45px;
-    height: 45px;
-  }
-  
-  .social-text p {
-    margin: 0;
-    color: white;
-    font-size: 16px;
-    line-height: 1.4;
-  }  
-  
-  /* Footer */
-  .footer {
-    background-color: #6d8c45;
-    padding: 16px;
+
+  .contact-list {
     text-align: center;
-    font-size: 14px;
-    color: white;
   }
-  
-  .footer-links {
-    margin-bottom: 8px;
+
+  .contact-box {
+    text-align: center;
   }
-  
-  .footer-links a {
-    margin: 0 10px;
-    color: white;
-    text-decoration: none;
-  }
-  
-  .footer-links a:hover {
-    text-decoration: underline;
-  }
-  
+}

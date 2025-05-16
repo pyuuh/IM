@@ -41,8 +41,12 @@ const Footer = () => {
         <div className="footer-right">
           <div className="payment-section">
             <span>We accept</span>
-            <img src={cardIcon} alt="Credit Card" className="payment-icon" />
-            <img src={bankIcon} alt="Bank Transfer" className="payment-icon" />
+            <a href="https://example.com/card-info" target="_blank" rel="noopener noreferrer">
+              <img src={cardIcon} alt="Credit Card" className="payment-icon" />
+            </a>
+            <a href="https://example.com/bank-info" target="_blank" rel="noopener noreferrer">
+              <img src={bankIcon} alt="Bank Transfer" className="payment-icon" />
+            </a>
           </div>
         </div>
       </div>

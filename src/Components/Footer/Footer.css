@@ -1,5 +1,12 @@
-/* Footer Styles */
+@font-face {
+  font-family: 'MyFont';
+  src: url('../../assets/font/static/PixelifySans-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .footer-container {
+  font-family: 'MyFont';
   width: 100%;
   background-color: inherit; /* No background */
   background-color: black; /* No background */
@@ -51,6 +58,12 @@
 .social-icons a {
   color: rgb(255, 255, 255);
   font-size: 20px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: rgb(119, 64, 5);
+  transform: scale(1.2);
 }
 
 .copyright {
@@ -84,6 +97,16 @@
   background-color: transparent; /* Avoid white box */
   border: none;
   display: block;
+}
+
+.payment-section a img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 4px;
+}
+
+.payment-section a:hover img {
+  transform: scale(1.1);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Links */
