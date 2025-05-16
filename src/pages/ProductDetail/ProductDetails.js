@@ -1,4 +1,3 @@
-// src/pages/ProductDetail/ProductDetails.js
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import './ProductDetails.css';
@@ -10,13 +9,39 @@ const ProductDetail = () => {
   const [quantity, setQuantity] = useState(1);
   const [rushOrder, setRushOrder] = useState(false);
   const [activeTab, setActiveTab] = useState('Description');
+  const [relatedProducts, setRelatedProducts] = useState([]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       const foundProduct = productsData.find(p => p.id === parseInt(id));
       setProduct(foundProduct);
+
+      if (foundProduct) {
+        let related = productsData.filter(p => 
+          p.material === foundProduct.material && 
+          p.id !== foundProduct.id
+        );
+
+        const uniqueTypes = [];
+        const typedRelated = [];
+        
+        related.forEach(product => {
+          if (!uniqueTypes.includes(product.type)) {
+            uniqueTypes.push(product.type);
+            typedRelated.push(product);
+          }
+        });
+
+        if (typedRelated.length >= 4) {
+          related = typedRelated.slice(0, 4);
+        } else {
+          related = related.slice(0, 4);
+        }
+
+        setRelatedProducts(related);
+      }
     }, 100);
-    
+
     return () => clearTimeout(timer);
   }, [id]);
 
@@ -50,7 +75,7 @@ const ProductDetail = () => {
     const fullStars = Math.floor(rating);
     const halfStar = rating % 1 >= 0.5;
     const stars = [];
-    
+
     for (let i = 1; i <= 5; i++) {
       if (i <= fullStars) {
         stars.push(<span key={i} className="star filled">★</span>);
@@ -60,7 +85,7 @@ const ProductDetail = () => {
         stars.push(<span key={i} className="star">★</span>);
       }
     }
-    
+
     return stars;
   };
 
@@ -74,50 +99,51 @@ const ProductDetail = () => {
 
   return (
     <div className="product-detail-page">
-      <div className="header">
-        <div className="logo">
-          <img src="/logo.png" alt="Metalworks Logo" />
-          <span>Metalworks | Product Details</span>
-        </div>
-        <div className="header-right">
-          <div className="search-bar">
-            <input type="text" placeholder="Search..." />
-            <button className="search-button">🔍</button>
-          </div>
-          <button className="favorites-button">Favorites</button>
-          <div className="user-profile">
-            <img src="/user-profile.png" alt="User Profile" />
-          </div>
-          <div className="settings">
-            <img src="/settings.png" alt="Settings" />
-          </div>
-        </div>
-      </div>
-
       <div className="product-detail-container">
         <div className="product-gallery">
           <div className="main-image">
-            {/* Main product image placeholder */}
+            <img src={product.image} alt={product.name} />
           </div>
           <div className="thumbnail-gallery">
-            {/* Thumbnail images placeholders */}
-            <div className="thumbnail"></div>
-            <div className="thumbnail"></div>
-            <div className="thumbnail"></div>
-            <div className="thumbnail"></div>
+            {relatedProducts.length > 0 ? (
+              relatedProducts.map((related) => (
+                <div key={related.id} className="thumbnail">
+                  <img src={related.image} alt={related.name} />
+                </div>
+              ))
+            ) : (
+              <div className="no-thumbnails-message">
+                <p>No related products available</p>
+              </div>
+            )}
           </div>
         </div>
-        
+
         <div className="product-info">
           <h1 className="product-title">{product.name}</h1>
+
+          <div className="product-price">
+            ₱ {product.price.toLocaleString()}
+            {rushOrder && (
+              <span style={{ fontSize: '16px', marginLeft: '10px' }}>
+                (Total: ₱ {(product.price * quantity * 1.2).toLocaleString()})
+              </span>
+            )}
+          </div>
+
+          <div className="product-rating">
+            {renderStarRating(product.rating)}
+            <span className="review-count">({Math.round(product.rating * 10)} reviews)</span>
+          </div>
+
           <p className="product-number">Item #{product.id}</p>
           <p className="crafted-by">Crafted by: {product.craftedBy}</p>
-          
+
           <div className="stock-info">
             <span className="in-stock">● In Stock</span>
             <span className="stock-quantity">({product.stock} available)</span>
           </div>
-          
+
           <div className="product-material">
             <h3>Material:</h3>
             <div className="material-selector">
@@ -129,7 +155,7 @@ const ProductDetail = () => {
               </select>
             </div>
           </div>
-          
+
           <div className="product-quantity">
             <h3>Quantity:</h3>
             <div className="quantity-selector">
@@ -149,7 +175,7 @@ const ProductDetail = () => {
               <button className="quantity-button" onClick={incrementQuantity}>+</button>
             </div>
           </div>
-          
+
           <div className="rush-order">
             <input 
               type="checkbox" 
@@ -159,28 +185,14 @@ const ProductDetail = () => {
             />
             <label htmlFor="rush-order-checkbox">Rush Order (+20% fee)</label>
           </div>
-          
+
           <div className="action-buttons">
             <button className="add-to-cart-button" onClick={addToCart}>ADD TO CART</button>
             <button className="checkout-button" onClick={handleCheckout}>CHECKOUT</button>
           </div>
-          
-          <div className="product-rating">
-            {renderStarRating(product.rating)}
-            <span className="review-count">({Math.round(product.rating * 10)} reviews)</span>
-          </div>
-          
-          <div className="product-price">
-            ₱ {product.price.toLocaleString()}
-            {rushOrder && (
-              <span style={{ fontSize: '16px', marginLeft: '10px' }}>
-                (Total: ₱ {(product.price * quantity * 1.2).toLocaleString()})
-              </span>
-            )}
-          </div>
         </div>
       </div>
-      
+
       <div className="product-tabs">
         <div className="tab-header">
           <div 
@@ -202,7 +214,7 @@ const ProductDetail = () => {
             Reviews
           </div>
         </div>
-        
+
         <div className="tab-content">
           {activeTab === 'Description' && <p>{product.description}</p>}
           {activeTab === 'Specification' && (
