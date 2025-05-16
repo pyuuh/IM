@@ -79,7 +79,9 @@ const CheckoutPage = () => {
     };
     
     console.log('Order submitted:', orderData);
-    navigate('/order-confirmation');
+    
+    // Pass order data to the confirmation page using state
+    navigate('/orderconfirm', { state: { orderData } });
   };
 
   const subtotal = items.reduce((sum, item) => sum + (item.price * item.quantity), 0);

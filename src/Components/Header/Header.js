@@ -4,7 +4,7 @@ import logo from './Headerassets/logo.png';
 import avatarIcon from './Headerassets/avatar.svg';
 import { ReactComponent as CartIcon } from './Headerassets/cart.svg';
 import { FaSearch } from 'react-icons/fa';
-import { useNavigate, Link, useLocation } from 'react-router-dom';
+import { useNavigate, Link, useLocation } from 'react-router-dom'; 
 
 const Header = () => {
   const [searchTerm, setSearchTerm] = useState('');
