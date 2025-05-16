@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './ProductPage.css';
@@ -56,15 +55,18 @@ const ProductPage = () => {
 
   const renderStarRating = (rating) => {
     const roundedRating = Math.round(rating);
-    const stars = [];
-    
-    for (let i = 1; i <= 5; i++) {
-      stars.push(
-        <span key={i} className={i <= roundedRating ? "star filled" : "star"}>★</span>
-      );
-    }
-    
-    return stars;
+    return (
+      <div className="pl-rating-container">
+        {[...Array(5)].map((_, i) => (
+          <span 
+            key={i} 
+            className={`pl-star ${i < roundedRating ? 'filled' : ''}`}
+          >
+            ★
+          </span>
+        ))}
+      </div>
+    );
   };
 
   return (
@@ -162,18 +164,18 @@ const ProductPage = () => {
 
           <div className="products-grid">
             {products.map(product => (
-              <div className="product-card" key={product.id}>
-                <div className="product-image">
+              <div className="pl-product-card" key={product.id}>
+                <div className="pl-product-image">
                   <img src={product.image} alt={product.name} />
                 </div>
-                <div className="product-info">
+                <div className="pl-product-info">
                   <h4>{product.name}</h4>
-                  <p className="product-type">{product.type}</p>
-                  <div className="product-rating">
+                  <p className="pl-product-type">{product.type.toUpperCase()}</p>
+                    <div className="pl-product-rating">
                     {renderStarRating(product.rating)}
-                    <span className="review-count">({Math.round(product.rating * 10)} reviews)</span>
+                    <span className="pl-review-count">({Math.round(product.rating * 10)} reviews)</span>
                   </div>
-                  <p className="product-price">₱ {product.price.toLocaleString()}</p>
+                    <p className="pl-product-price">₱ {product.price.toLocaleString()}</p>
                 </div>
                 <Link to={`/productdetails/${product.id}`} className="view-details-button">
                   VIEW DETAILS
