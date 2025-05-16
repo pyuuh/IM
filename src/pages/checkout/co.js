@@ -1,30 +1,29 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './co.css';
 import Header from '../../Components/Header/Header.js';
 import Footer from '../../Components/Footer/Footer.js';
-
-// Sample item images (replace with your actual image imports)
-import Item1Image from '../assets/item1.jpg';
-import Item2Image from '../assets/item2.jpg';
+import bronzeShield from './coassets/bronze_shield.png';
+import bronzeSword from './coassets/bronze_sword.png';
 
 const CheckoutPage = () => {
   const navigate = useNavigate();
   const [items, setItems] = useState([
     { 
       id: 1, 
-      name: 'Metalwork Item 1', 
-      description: 'Item from above (with here)',
-      price: 1500.00, 
+      name: 'Bronze Shield', 
+      description: 'Boasting an antique finish, this bronze shield merges history and durability. Ideal for collectors or anyone wanting that warrior aesthetic.',
+      price: 1200.00, 
       quantity: 1,
-      image: Item1Image
+      image: bronzeShield
     },
     { 
       id: 2, 
-      name: 'Metalwork Item 2', 
-      description: 'Item from above (with here)',
-      price: 2200.00, 
+      name: 'Bronze Sword', 
+      description: 'A sword with character and weight, the bronze blade offers a classic look with a rich, golden finish. Ideal for display or cosplay, it is a true warrior centerpiece.',
+      price: 1300.00, 
       quantity: 1,
-      image: Item2Image
+      image: bronzeSword
     }
   ]);
   
@@ -36,12 +35,8 @@ const CheckoutPage = () => {
   const [discountAmount, setDiscountAmount] = useState(0);
   const [promoError, setPromoError] = useState('');
 
-  // Sample promo codes (replace with your actual promo codes)
-  const validPromoCodes = {
-    'METAL10': 0.1,    // 10% discount
-    'WELCOME20': 0.2,  // 20% discount
-    'FREESHIP': 50     // Fixed amount discount
-  };
+  const validPromoCode = '1111';
+  const promoDiscount = 100;
 
   const handleQuantityChange = (id, newQuantity) => {
     if (newQuantity < 1) return;
@@ -60,20 +55,10 @@ const CheckoutPage = () => {
       return;
     }
 
-    const promoCode = discountCode.trim().toUpperCase();
-    
-    if (validPromoCodes[promoCode]) {
-      const discountValue = validPromoCodes[promoCode];
+    if (discountCode.trim() === validPromoCode) {
       setDiscountApplied(true);
+      setDiscountAmount(promoDiscount);
       setPromoError('');
-      
-      if (discountValue < 1) {
-        // Percentage discount
-        setDiscountAmount(subtotal * discountValue);
-      } else {
-        // Fixed amount discount
-        setDiscountAmount(discountValue);
-      }
     } else {
       setPromoError('Invalid promo code');
       setDiscountApplied(false);
@@ -86,7 +71,7 @@ const CheckoutPage = () => {
       items,
       message,
       discountCode: discountApplied ? discountCode : null,
-      discountAmount,
+      discountAmount: discountApplied ? promoDiscount : 0,
       paymentMethod,
       subtotal,
       shipping,
@@ -98,11 +83,16 @@ const CheckoutPage = () => {
   };
 
   const subtotal = items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-  const shipping = discountCode === 'FREESHIP' ? 0.00 : 100.00; // Free shipping with FREESHIP code
-  const total = subtotal + shipping - discountAmount;
+  const shipping = 100.00;
+  const total = subtotal + shipping - (discountApplied ? promoDiscount : 0);
 
   return (
     <div className="checkout-page">
+      <div className="background-effects">
+        <div className="particles"></div>
+        <div className="glow-effect"></div>
+      </div>
+      
       <Header />
       
       <main className="checkout-container">
@@ -166,7 +156,7 @@ const CheckoutPage = () => {
               {promoError && <p className="promo-error">{promoError}</p>}
               {discountApplied && (
                 <p className="promo-success">
-                  Promo code applied! Discount: P {discountAmount.toFixed(2)}
+                  Promo code applied! Discount: P {promoDiscount.toFixed(2)}
                 </p>
               )}
             </div>
@@ -225,7 +215,7 @@ const CheckoutPage = () => {
                 {discountApplied && (
                   <tr>
                     <td>Discount Subtotal</td>
-                    <td>- P {discountAmount.toFixed(2)}</td>
+                    <td>- P {promoDiscount.toFixed(2)}</td>
                   </tr>
                 )}
                 <tr className="total-row">
@@ -241,17 +231,6 @@ const CheckoutPage = () => {
           </div>
         </div>
       </main>
-
-      <div className="account-statement">
-        <h3>Account Statement</h3>
-        <ul>
-          <li>About Us</li>
-          <li>Forg & Help Center</li>
-          <li>Phone: 80/06</li>
-          <li>Contact Us</li>
-          <li>Totus: 80/06</li>
-        </ul>
-      </div>
 
       <Footer />
     </div>
