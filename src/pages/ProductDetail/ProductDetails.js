@@ -1,32 +1,8 @@
+// src/pages/ProductDetail/ProductDetails.js
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import './ProductDetails.css';
-
-// Mock data moved to the top level of the component file
-const productsData = [
-  { 
-    id: 1, 
-    name: 'Master Sword', 
-    type: 'sword', 
-    material: 'steel', 
-    price: 100000, 
-    stock: 9, 
-    rating: 4.5, 
-    craftedBy: 'Kristine, Master Blacksmith',
-    description: 'A legendary sword with exceptional craftsmanship. This blade has been forged using traditional techniques combined with modern metallurgy for superior durability and sharpness.'
-  },
-  { 
-    id: 2, 
-    name: 'Royal Shield', 
-    type: 'shield', 
-    material: 'iron', 
-    price: 78000, 
-    stock: 5, 
-    rating: 4.0,
-    craftedBy: 'Marcus, Elite Armorer',
-    description: 'A sturdy shield designed for royal guards. Features intricate detailing and offers superior protection against both physical and magical attacks.'
-  }
-];
+import { productsData } from '../../data/productsData';
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -36,7 +12,6 @@ const ProductDetail = () => {
   const [activeTab, setActiveTab] = useState('Description');
 
   useEffect(() => {
-    // Simulate a small delay for loading effect
     const timer = setTimeout(() => {
       const foundProduct = productsData.find(p => p.id === parseInt(id));
       setProduct(foundProduct);
@@ -234,7 +209,10 @@ const ProductDetail = () => {
             <div>
               <p><strong>Type:</strong> {product.type}</p>
               <p><strong>Material:</strong> {product.material}</p>
-              <p><strong>Weight:</strong> {product.type === 'sword' ? '2.5 kg' : '5.8 kg'}</p>
+              <p><strong>Weight:</strong> {product.type === 'sword' ? '2.5 kg' : 
+                                         product.type === 'shield' ? '5.8 kg' :
+                                         product.type === 'armor' ? '15.2 kg' :
+                                         product.type === 'dagger' ? '1.2 kg' : '3.5 kg'}</p>
             </div>
           )}
           {activeTab === 'Reviews' && (

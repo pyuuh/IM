@@ -1,145 +1,11 @@
+// src/pages/ProductPage/ProductPage.js
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './ProductPage.css';
+import { productsData } from '../../data/productsData';
 
 const ProductPage = () => {
-  // Updated product data to match ProductDetails requirements
-  const initialProducts = [
-    { 
-      id: 1, 
-      name: 'Master Sword', 
-      type: 'sword', 
-      material: 'steel', 
-      price: 8500, 
-      rating: 4.5,
-      craftedBy: 'Kristine, Master Blacksmith',
-      description: 'A legendary sword with exceptional craftsmanship.',
-      stock: 9
-    },
-    { 
-      id: 2, 
-      name: 'Royal Shield', 
-      type: 'shield', 
-      material: 'iron', 
-      price: 7800, 
-      rating: 4.0,
-      craftedBy: 'Marcus, Elite Armorer',
-      description: 'A sturdy shield designed for royal guards.',
-      stock: 5
-    },
-    { 
-      id: 3, 
-      name: 'Knight Armor', 
-      type: 'armor', 
-      material: 'steel', 
-      price: 12000, 
-      rating: 4.8,
-      craftedBy: 'Elaine, Armor Specialist',
-      description: 'Full plate armor for maximum protection.',
-      stock: 3
-    },
-    { 
-      id: 4, 
-      name: 'Hidden Dagger', 
-      type: 'dagger', 
-      material: 'bronze', 
-      price: 5500, 
-      rating: 3.5,
-      craftedBy: 'Silas, Weaponsmith',
-      description: 'Concealable dagger for stealth operations.',
-      stock: 12
-    },
-    { 
-      id: 5, 
-      name: 'War Helmet', 
-      type: 'helmet', 
-      material: 'titanium', 
-      price: 9200, 
-      rating: 4.2,
-      craftedBy: 'Garrick, Armorer',
-      description: 'Lightweight yet durable battle helmet.',
-      stock: 7
-    },
-    { 
-      id: 6, 
-      name: 'Dragon Slayer', 
-      type: 'sword', 
-      material: 'titanium', 
-      price: 15000, 
-      rating: 5.0,
-      craftedBy: 'Kristine, Master Blacksmith',
-      description: 'The ultimate weapon against draconic foes.',
-      stock: 2
-    },
-    { 
-      id: 7, 
-      name: 'Bronze Buckler', 
-      type: 'shield', 
-      material: 'bronze', 
-      price: 6500, 
-      rating: 3.8,
-      craftedBy: 'Marcus, Elite Armorer',
-      description: 'Small but sturdy round shield.',
-      stock: 8
-    },
-    { 
-      id: 8, 
-      name: 'Assassin Blade', 
-      type: 'dagger', 
-      material: 'steel', 
-      price: 7000, 
-      rating: 4.6,
-      craftedBy: 'Silas, Weaponsmith',
-      description: 'Razor-sharp blade for precision strikes.',
-      stock: 6
-    },
-    { 
-      id: 9, 
-      name: 'Iron Helmet', 
-      type: 'helmet', 
-      material: 'iron', 
-      price: 6800, 
-      rating: 3.9,
-      craftedBy: 'Garrick, Armorer',
-      description: 'Classic iron helmet with nose guard.',
-      stock: 10
-    },
-    { 
-      id: 10, 
-      name: 'Ceremonial Sword', 
-      type: 'sword', 
-      material: 'bronze', 
-      price: 9800, 
-      rating: 4.3,
-      craftedBy: 'Kristine, Master Blacksmith',
-      description: 'Ornate sword for formal occasions.',
-      stock: 4
-    },
-    { 
-      id: 11, 
-      name: 'Full Plate', 
-      type: 'armor', 
-      material: 'iron', 
-      price: 13500, 
-      rating: 4.7,
-      craftedBy: 'Elaine, Armor Specialist',
-      description: 'Complete set of plate armor.',
-      stock: 3
-    },
-    { 
-      id: 12, 
-      name: 'Elite Guard Shield', 
-      type: 'shield', 
-      material: 'titanium', 
-      price: 11000, 
-      rating: 4.9,
-      craftedBy: 'Marcus, Elite Armorer',
-      description: 'Premium shield for elite guards.',
-      stock: 7
-    },
-  ];
-
-  const [products, setProducts] = useState(initialProducts);
+  const [products, setProducts] = useState(productsData);
   const [filters, setFilters] = useState({
     types: {
       sword: false,
@@ -156,7 +22,6 @@ const ProductPage = () => {
     }
   });
 
-  // Apply filters when they change
   useEffect(() => {
     filterProducts();
   }, [filters]);
@@ -166,11 +31,11 @@ const ProductPage = () => {
     const activeMaterialFilters = Object.entries(filters.materials).filter(([_, value]) => value).map(([key, _]) => key);
     
     if (activeTypeFilters.length === 0 && activeMaterialFilters.length === 0) {
-      setProducts(initialProducts);
+      setProducts(productsData);
       return;
     }
     
-    const filteredProducts = initialProducts.filter(product => {
+    const filteredProducts = productsData.filter(product => {
       const typeMatch = activeTypeFilters.length === 0 || activeTypeFilters.includes(product.type);
       const materialMatch = activeMaterialFilters.length === 0 || activeMaterialFilters.includes(product.material);
       return typeMatch && materialMatch;
