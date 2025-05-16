@@ -7,45 +7,44 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="footer">
-           <div className="footer-bottom">
-             <div className="footer-bottom">
-        <div className="footer-columns">
-          <div className="footer-column">
-            <h4>About Blacksmith</h4>
+    <footer className="footer-container">
+      <div className="footer-content">
+        {/* Left column - Links */}
+        <div className="footer-links">
+          <div className="link-column">
             <Link to="/about">About Us</Link>
             <Link to="/contact">Contact Us</Link>
           </div>
-          <div className="footer-column">
-            <h4>FAQ & Help Center</h4>
+          <div className="link-column">
             <Link to="/privacy">Privacy Policy</Link>
             <Link to="/terms">Terms of Use</Link>
           </div>
-          <div className="footer-column">
-            <h4>We accept</h4>
-            <div className="payment-icons">
-              <a href="https://paythroughbank.com" target="_blank" rel="noreferrer">
-                <img src={bankIcon} alt="Bank Transfer" className="payment-icon" />
-              </a>
-              <a href="https://paythroughcard.com" target="_blank" rel="noreferrer">
-                <img src={cardIcon} alt="Credit Card" className="payment-icon" />
-              </a>
-            </div>
-            </div>
         </div>
-      </div>
-        <div className="social-icons">
-          <a href="https://metalworksfacebook.com" target="_blank" rel="noreferrer">
-            <FaFacebook size={28} />
-          </a>
-          <a href="https://metalworksinstagram.com" target="_blank" rel="noreferrer">
-            <FaInstagram size={28} />
-          </a>
-          <a href="https://metalworkslinkedin.com" target="_blank" rel="noreferrer">
-            <FaLinkedin size={28} />
-          </a>
+
+        {/* Center column - Socials and Copyright */}
+        <div className="footer-center">
+          <div className="social-icons">
+            <a href="https://facebook.com" target="_blank" rel="noreferrer">
+              <FaFacebook />
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noreferrer">
+              <FaInstagram />
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noreferrer">
+              <FaLinkedin />
+            </a>
+          </div>
+          <p className="copyright">Copyright @2024 Blacksmith.</p>
         </div>
-        <p>Copyright ©2024 Metalworks.</p>
+
+        {/* Right column - Payments */}
+        <div className="footer-right">
+          <div className="payment-section">
+            <span>We accept</span>
+            <img src={cardIcon} alt="Credit Card" className="payment-icon" />
+            <img src={bankIcon} alt="Bank Transfer" className="payment-icon" />
+          </div>
+        </div>
       </div>
     </footer>
   );
