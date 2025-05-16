@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Dashboard.css';
 
+
 // Import product images
 import bronzeArmorImg from './dashassets/bronze_armor.png';
 import steelHelmetImg from './dashassets/steel_helmet.png';
@@ -10,6 +11,9 @@ import ironShieldImg from './dashassets/iron_shield.png';
 import titaniumArmorImg from './dashassets/titanium_armor.png';
 import ironHelmetImg from './dashassets/iron_helmet.png';
 import steelDaggerImg from './dashassets/steel_dagger.png';
+import cloud1 from '../../assets/cloud1.png';
+
+
 
 const Dashboard = () => {
   const [activeSection, setActiveSection] = useState('dashboard');
@@ -114,7 +118,7 @@ const Dashboard = () => {
   };
 
   return (
-
+    
       <div className="dashboard-content">
         <div className="sidebar">
           <div className="nav-container">
@@ -149,6 +153,10 @@ const Dashboard = () => {
               </li>
             </ul>
           </div>
+          <div className="main-panel">
+      <img src={cloud1} alt="Cloud" className="zoomed-full-image" />
+
+    </div>
 
           <div className="forge-branding">
             <h3>MetalWorks</h3>

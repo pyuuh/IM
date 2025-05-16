@@ -10,6 +10,20 @@ body {
   line-height: 1.6;
 }
 
+.zoomed-full-image {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+
+
+
 .dashboard-container {
   min-height: 100vh;
   background-image: url('../../assets/cloud1.png');
