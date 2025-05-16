@@ -81,6 +81,38 @@
   align-items: center;
 }
 
+.form-rows {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;           /* Use full container width */
+  margin: 0 auto;
+  justify-content: flex-start;
+  gap: 0px;
+  margin-right: 80px;
+  margin-left: -20px;
+}
+
+.name-row,
+.credits-row {
+  flex: 1;
+  width: 40%; /* or adjust to 45% each if needed */
+  height: auto;
+  margin: 0; /* Remove large fixed margins */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.name-row input,
+.credits-row input {
+  width: 150px;   /* or any size you want */
+  height: 35px;
+  font-size: 1rem;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
 .guide-icon {
   width: 20px;
   height: 20px;
@@ -144,16 +176,17 @@
   background-repeat: no-repeat;        
   background-size: cover;              
   background-position: center; 
-  padding: 1.5rem;
-  width: 46%;
+  padding: 0.5rem;
+  width: 50%;
   position: relative;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);;
 }
 
-.login-title {
+.signup-title {
   font-size: 24px;
   font-weight: bold;
-  margin-bottom: 24px;
+  margin-bottom: 10px;
+  padding-top: 20px;
   text-align: center;
 }
 
@@ -171,17 +204,21 @@
 }
 
 .form-label {
-  display: block;
   margin-bottom: 6px;
   font-weight: 500;
+  position: relative;
+  margin-top: 5rem;
 }
 
 .form-input {
-  width: 100%;
+  width: 200px;
   padding: 10px;
-  border: 1px solid #d1d5db;
-  border-radius: 4px;
-  font-size: 16px;
+  font-size: 15px;
+  background-color: var(--input-bg);
+  color: var(--text-dark);
+  font-family: 'MyFont', monospace;
+  font-size: 0.8rem;
+  outline: none;
 }
 
 .form-input:focus {
@@ -198,6 +235,7 @@
 
 .submit-button {
   width: 100%;
+  justify-content: center;
   background-color: #ff3c00;
   color: white;
   padding: 10px;
