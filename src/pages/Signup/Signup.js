@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Signup.css';
+import textboxImage from '../../assets/textbox.PNG';
+
 
 const Signup = () => {
   const [firstName, setFirstName] = useState('');
@@ -114,7 +116,20 @@ const Signup = () => {
 
   return (
     <div className="signup-container">
-      <div className="signup-card">
+      <div className="signup-card" 
+      style={{ 
+        backgroundImage: `url(${textboxImage})`,
+        backgroundSize: 'contain', // or 'cover', or '100% 100%'
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        width: '500px',
+        height: '300px',
+        padding: '2rem',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+     }}>
         <h1 className="signup-title">Sign Up</h1>
         
         {error && (
@@ -124,12 +139,13 @@ const Signup = () => {
         )}
         
         <form onSubmit={handleSubmit}>
+           <div className="form-rows">
           <div className="name-row">
             <div className="form-group">
-              <label className="form-label">First Name</label>
               <input 
                 type="text"
                 className="form-input"
+                placeholder='First Name'
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
               />
@@ -137,10 +153,10 @@ const Signup = () => {
             </div>
             
             <div className="form-group">
-              <label className="form-label">Last Name</label>
               <input 
                 type="text"
                 className="form-input"
+                placeholder='Last Name'
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
               />
@@ -148,11 +164,12 @@ const Signup = () => {
             </div>
           </div>
           
+          <div className='credits-row'>
           <div className="form-group">
-            <label className="form-label">Email</label>
             <input 
               type="email"
               className="form-input"
+              placeholder='Email'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -160,16 +177,17 @@ const Signup = () => {
           </div>
           
           <div className="form-group">
-            <label className="form-label">Password</label>
             <input 
               type="password"
               className="form-input"
+              placeholder='Password'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
             {passwordError && <p className="error-message">{passwordError}</p>}
           </div>
-          
+          </div>
+          </div>
           <button 
             type="submit" 
             className="submit-button" 
