@@ -16,6 +16,7 @@ import Search from './Components/Header/Search/Search';
 import ProductPage from './pages/ProductPage/ProductPages.js';
 import ProductDetails from './pages/ProductDetail/ProductDetails.js';
 import ShoppingCart from './pages/ShoppingCart/ShoppingCart';
+import Dashboard from './pages/Dashboard/Dashboard.js';
 
 function App() {
   return (
@@ -35,6 +36,8 @@ function App() {
         <Route path="/Search" element={<Search />} />
         <Route path="/product" element={<ProductPage />} />
         <Route path="/productdetails/:id" element={<ProductDetails />} />
+        <Route path="/ShoppingCart" element={<ShoppingCart />} />
+        <Route path="/Dashboard" element={<Dashboard />} />
       </Routes>
 
       <Footer />
