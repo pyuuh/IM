@@ -9,9 +9,6 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Search from './components/Header/Search/Search';
 
-import CheckoutPage from './pages/checkout/co.js';
-import OrderConfirmation from './pages/OrderConfirmation/oc.js';
-
 
 function App() {
   return (
@@ -25,8 +22,6 @@ function App() {
         <Route path="/About" element={<About />} />
         <Route path="/Contact" element={<Contact />} />
         <Route path="/Search" element={<Search />} />
-        <Route path="/checkout" element={<CheckoutPage />} />
-        <Route path="/orderconfirmation" element={<OrderConfirmation />} />
       </Routes>
 
       <Footer />
