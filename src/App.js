@@ -10,8 +10,8 @@ import OrderTrackingPage from './pages/ordertracking/ot.js';
 
 import About from './pages/About/About.js';
 import Contact from './pages/Contact/Contact.js';
-import Header from './Components/Header/Header';
-import Footer from './Components/Footer/Footer';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 import Search from './components/Header/Search/Search';
 import ShoppingCart from './pages/ShoppingCart/ShoppingCart';
 
