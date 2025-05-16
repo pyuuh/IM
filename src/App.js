@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Signup from './pages/Signup/Signup.js';
 import CheckoutPage from './pages/checkout/co.js';
 import OrderConfirmPage from './pages/orderconfirm/oc.js';
+import OrderTrackingPage from './pages/ordertracking/ot.js';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/Signup" element={<Signup />} />
         <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="/orderconfirm" element={<OrderConfirmPage />} />
+        <Route path="/ordertracking" element={<OrderTrackingPage />} />
       </Routes> 
     </Router>
   );
