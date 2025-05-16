@@ -1,0 +1,369 @@
+/* ProductPage.css - Enhanced Version */
+.products-page {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #121212;
+  color: #f5f5f5;
+  min-height: 100vh;
+  padding-bottom: 50px;
+  position: relative;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  border-bottom: 1px solid #4b5320;
+  background-color: #1a1a1a;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.logo img {
+  width: 45px;
+  height: 45px;
+  margin-right: 12px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.search-bar input {
+  padding: 10px 15px;
+  padding-right: 35px;
+  border-radius: 25px;
+  border: none;
+  background-color: rgba(154, 205, 50, 0.2);
+  color: white;
+  width: 200px;
+  transition: all 0.3s ease;
+}
+
+.search-bar input:focus {
+  outline: none;
+  background-color: rgba(154, 205, 50, 0.3);
+  width: 250px;
+}
+
+.search-bar input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.search-button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  color: white;
+  transition: transform 0.2s ease;
+}
+
+.search-button:hover {
+  transform: scale(1.1);
+}
+
+.favorites-button {
+  padding: 10px 18px;
+  border-radius: 25px;
+  border: none;
+  background: linear-gradient(135deg, #9ACD32, #7CB342);
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.favorites-button:hover {
+  background: linear-gradient(135deg, #8bbc28, #6ca332);
+  box-shadow: 0 4px 12px rgba(154, 205, 50, 0.3);
+}
+
+.user-profile img, .settings img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.user-profile img:hover, .settings img:hover {
+  border-color: #9ACD32;
+  transform: scale(1.05);
+}
+
+.products-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 30px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+h1::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(to right, #9ACD32, #b22222);
+  margin: 15px auto 0;
+}
+
+.products-content {
+  display: flex;
+  gap: 40px;
+}
+
+.filters-sidebar {
+  width: 280px;
+  background-color: #1e1e1e;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+}
+
+.filter-section {
+  margin-bottom: 35px;
+}
+
+.filter-section h4 {
+  border-bottom: 1px solid #4b5320;
+  padding-bottom: 12px;
+  margin-bottom: 18px;
+  font-size: 18px;
+  color: #9ACD32;
+}
+
+.filter-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.filter-options label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.filter-options label:hover {
+  color: #9ACD32;
+  background-color: rgba(154, 205, 50, 0.1);
+}
+
+.filter-options input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #9ACD32;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 30px;
+  flex: 1;
+}
+
+.product-card {
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  border: 1px solid #333;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  border-color: #4b5320;
+}
+
+.product-image {
+  height: 200px;
+  background-color: #2a2a2a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-image::before {
+  content: "X";
+  font-size: 50px;
+  color: #444;
+  position: absolute;
+  z-index: 1;
+}
+
+.product-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(154, 205, 50, 0.1), rgba(178, 34, 34, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.product-card:hover .product-image::after {
+  opacity: 1;
+}
+
+.product-info {
+  padding: 20px;
+  color: #f5f5f5;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-info h4 {
+  margin: 0;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.product-type {
+  font-size: 13px;
+  color: #9ACD32;
+  text-align: center;
+  margin: 5px 0;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.product-rating {
+  display: flex;
+  justify-content: center;
+  margin: 12px 0;
+  gap: 3px;
+}
+
+.star {
+  color: #444;
+  font-size: 18px;
+  transition: color 0.2s ease;
+}
+
+.star.filled {
+  color: #ff9800;
+}
+
+.product-price {
+  text-align: center;
+  font-weight: bold;
+  margin: 10px 0 15px;
+  color: #9ACD32;
+  font-size: 20px;
+}
+
+.view-details-button {
+  background: linear-gradient(to right, #b22222, #d32f2f);
+  color: white;
+  text-align: center;
+  padding: 12px 0;
+  text-decoration: none;
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 0 0 8px 8px;
+  transition: all 0.3s ease;
+  margin-top: auto;
+}
+
+.view-details-button:hover {
+  background: linear-gradient(to right, #8b0000, #b22222);
+  letter-spacing: 0.5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .products-content {
+    flex-direction: column;
+  }
+  
+  .filters-sidebar {
+    width: 100%;
+    position: static;
+    margin-bottom: 30px;
+  }
+  
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 20px;
+  }
+  
+  .header-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .search-bar input {
+    width: 150px;
+  }
+  
+  .search-bar input:focus {
+    width: 180px;
+  }
+  
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+  }
+}
