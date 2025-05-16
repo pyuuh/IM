@@ -9,6 +9,9 @@ import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
 import Search from './Components/Header/Search/Search';
 import ShoppingCart from './pages/ShoppingCart/ShoppingCart';
+import FAQ from'./pages/FAQ/Faq.js';
+import TermsAndConditions from './pages/TermsAndConditions/TermsAndConditions';
+import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy';
 
 function App() {
   return (
@@ -23,6 +26,9 @@ function App() {
         <Route path="/Contact" element={<Contact />} />
         <Route path="/Search" element={<Search />} />
         <Route path="/ShoppingCart" element={<ShoppingCart />} />
+        <Route path="/FAQ" element={<FAQ />} />
+        <Route path="/TermsAndConditions" element={<TermsAndConditions />} />
+        <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
       </Routes>
 
       <Footer />
