@@ -1,0 +1,243 @@
+/* Checkout Page Styles */
+.checkout-page {
+  font-family: 'Arial', sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  color: #333;
+}
+
+.checkout-container {
+  margin: 20px 0;
+}
+
+.checkout-container h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.checkout-description {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.checkout-sections {
+  display: flex;
+  gap: 30px;
+}
+
+.order-items-section {
+  flex: 2;
+}
+
+.order-summary-section {
+  flex: 1;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  height: fit-content;
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.item-info h3 {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.returner {
+  font-size: 12px;
+  color: #666;
+}
+
+.item-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quantity-control button {
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 14px;
+}
+
+.message-section {
+  margin: 20px 0;
+}
+
+.message-section label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.message-section input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.total-section {
+  margin: 20px 0;
+}
+
+.payment-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.payment-selector {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.payment-toggle {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.payment-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 10;
+  min-width: 180px;
+}
+
+.payment-dropdown button {
+  display: block;
+  width: 100%;
+  padding: 8px 15px;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.payment-dropdown button:hover {
+  background-color: #f5f5f5;
+}
+
+.discount-section {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.discount-section input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.apply-btn {
+  padding: 10px 15px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.order-summary-section h2 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.summary-table {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.summary-table td {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.total-row td {
+  padding-top: 15px;
+  border-bottom: none;
+}
+
+.place-order-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.place-order-btn:hover {
+  background-color: #333;
+}
+
+.account-statement {
+  margin-top: 40px;
+  padding: 20px 0;
+  border-top: 1px solid #eee;
+}
+
+.account-statement h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.account-statement ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.account-statement li {
+  font-size: 14px;
+  color: #666;
+  cursor: pointer;
+}
+
+.account-statement li:hover {
+  text-decoration: underline;
+}

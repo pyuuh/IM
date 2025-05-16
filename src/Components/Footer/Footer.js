@@ -8,7 +8,8 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer className="footer">
-      <div className="footer-top">
+           <div className="footer-bottom">
+             <div className="footer-bottom">
         <div className="footer-columns">
           <div className="footer-column">
             <h4>About Blacksmith</h4>
@@ -30,11 +31,9 @@ const Footer = () => {
                 <img src={cardIcon} alt="Credit Card" className="payment-icon" />
               </a>
             </div>
-          </div>
+            </div>
         </div>
       </div>
-
-      <div className="footer-bottom">
         <div className="social-icons">
           <a href="https://metalworksfacebook.com" target="_blank" rel="noreferrer">
             <FaFacebook size={28} />
