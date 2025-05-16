@@ -17,6 +17,10 @@ import ProductPage from './pages/ProductPage/ProductPages.js';
 import ProductDetails from './pages/ProductDetail/ProductDetails.js';
 import ShoppingCart from './pages/ShoppingCart/ShoppingCart';
 import Dashboard from './pages/Dashboard/Dashboard.js';
+import FAQ from './pages/FAQ/Faq.js';
+import TermsAndConditions from './pages/TermsAndConditions/TermsAndConditions.js';
+import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy.js';
+
 
 function App() {
   return (
@@ -38,6 +42,10 @@ function App() {
         <Route path="/productdetails/:id" element={<ProductDetails />} />
         <Route path="/ShoppingCart" element={<ShoppingCart />} />
         <Route path="/Dashboard" element={<Dashboard />} />
+        <Route path="/FAQ" element={<FAQ />} />
+        <Route path="/TermsAndConditions" element={<TermsAndConditions />} />
+        <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
+
       </Routes>
 
       <Footer />

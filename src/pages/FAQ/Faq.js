@@ -46,14 +46,12 @@ const FAQ = () => {
 
   const handleCategoryClick = (link) => {
     console.log(`Navigating to: ${link}`);
-    // In a real application, you would use React Router or similar:
-    // history.push(link) or navigate(link)
+    
   };
 
   const handleArticleClick = (link) => {
     console.log(`Opening article: ${link}`);
-    // In a real application, you would use React Router or similar:
-    // history.push(link) or navigate(link)
+  
   };
 
   return (
