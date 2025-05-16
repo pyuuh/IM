@@ -1,7 +1,12 @@
-/* ShoppingCart.css */
+@font-face {
+  font-family: 'MyFont';
+  src: url('../../assets/font/static/PixelifySans-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
-/* Main Container Styles */
 .shopping-cart-container {
+  font-family: 'MyFont';
   min-height: 100vh;
   background-color: #000000;
   color: #ffffff;

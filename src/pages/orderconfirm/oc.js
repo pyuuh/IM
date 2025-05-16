@@ -1,138 +1,132 @@
-import React, { useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
-import html2canvas from 'html2canvas';
+import React, { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import './oc.css';
 import Header from '../../Components/Header/Header.js';
 import Footer from '../../Components/Footer/Footer.js';
+import bronzeShield from './ocassets/bronze_shield.png';
+import bronzeSword from './ocassets/bronze_sword.png';
+import receiptImage from './ocassets/RCPT.png';
 
 const OrderConfirmation = () => {
   const navigate = useNavigate();
-  const printRef = useRef();
-
-  // Sample order data - replace with actual data from your state/API
-  const order = {
-    number: '2023300851',
-    email: 'you@mie.com',
+  const { state } = useLocation();
+  const orderData = state?.orderData || {
     items: [
-      {
-        name: 'Bronze Sword',
-        quantity: 1,
-        price: 4500.00
-      }
+      { name: 'Bronze Shield', price: 1200, quantity: 1 },
+      { name: 'Bronze Sword', price: 1300, quantity: 1 }
     ],
-    shipping: {
-      method: 'Home Shipping',
-      address: 'CM Recio Ave, Lapasan, CDCC PH',
-      estimatedArrival: '5-7 Business Days',
-      cost: 250.00
-    },
-    subtotal: 4500.00,
-    discount: 0.00,
-    total: 4750.00
+    subtotal: 2500,
+    shipping: 100,
+    discountAmount: 100,
+    total: 2500,
+    orderNumber: '2023300851'
   };
 
-  const handlePrint = () => {
-    const element = printRef.current;
-    html2canvas(element).then(canvas => {
-      const dataUrl = canvas.toDataURL('image/jpeg');
-      const link = document.createElement('a');
-      link.download = `order-${order.number}.jpeg`;
-      link.href = dataUrl;
-      link.click();
-    });
+  const [isCanceled, setIsCanceled] = useState(false);
+
+  const handlePrintOrder = () => {
+    const link = document.createElement('a');
+    link.href = receiptImage;
+    link.download = 'Metalworks_Receipt.png';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   const handleCancelOrder = () => {
-    if (window.confirm('Are you sure you want to cancel this order?')) {
-      // In a real app, you would call an API to cancel the order
-      alert('Order has been cancelled');
-      navigate('/'); // Redirect to home page
-    }
+    setIsCanceled(true);
+    setTimeout(() => setIsCanceled(false), 3000);
+  };
+
+  const handleTrackOrder = () => {
+    navigate('/ordertracking', { 
+      state: { 
+        orderNumber: orderData.orderNumber,
+        items: orderData.items,
+        total: orderData.total
+      }
+    });
   };
 
   return (
-    <div className="confirmation-page">
+    <div className="order-confirmation-container">
       <Header />
       
-      <main className="confirmation-container">
-        <div className="confirmation-card" ref={printRef}>
-          <h1>Your order has been forged!</h1>
+      <div className="confirmation-content">
+        <h1 className="confirmation-title">Your order has been forged!</h1>
+        
+        <div className="order-summary">
+          <h2>Order Summary</h2>
+          <div className="order-number">
+            <h3>Order No. {orderData.orderNumber}</h3>
+            <p>We've sent a confirmation email with your order details.</p>
+          </div>
+        </div>
+        
+        <div className="order-details" id="order-receipt">
+          <h2>Order Details</h2>
           
-          <div className="confirmation-header">
-            <h2>Order No. {order.number}</h2>
-            <p>
-              We've sent a confirmation email with your order details to {order.email}.
-            </p>
-            <p>
-              For in-store pickups, bring your confirmation email and a valid ID.
-            </p>
-            <p className="support-text">
-              Question? Reach us anytime — we're always hoping something awesome.
-            </p>
+          <div className="shipping-info">
+            <h3>Home Shipping</h3>
+            <p><strong>Shipping To:</strong> CM Recto Ave. Lapasan, CDOC PH</p>
           </div>
-
-          <div className="order-summary">
-            <h3>Order Summary</h3>
-            <table>
-              <tbody>
-                <tr>
-                  <td>Order Total ({order.items.length} items):</td>
-                  <td>P {order.subtotal.toFixed(2)}</td>
-                </tr>
-                <tr>
-                  <td>Shipping</td>
-                  <td>P {order.shipping.cost.toFixed(2)}</td>
-                </tr>
-                <tr>
-                  <td>Discount</td>
-                  <td>P {order.discount.toFixed(2)}</td>
-                </tr>
-                <tr className="total-row">
-                  <td><strong>Order Total</strong></td>
-                  <td><strong>P {order.total.toFixed(2)}</strong></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div className="order-details">
-            <h3>Order Details</h3>
-            <p className="shipping-method">{order.shipping.method}</p>
-            <p className="shipping-address">Shipping To: {order.shipping.address}</p>
-            <p className="arrival-estimate">Estimated Arrival: {order.shipping.estimatedArrival}</p>
-            
-            {order.items.map((item, index) => (
-              <div key={index} className="order-item">
-                <p className="item-name">{item.name}</p>
-                <div className="item-details">
-                  <span>Qty: {item.quantity}</span>
-                  <span>Price: P {item.price.toFixed(2)}</span>
-                </div>
+          
+          <div className="items-list">
+            {orderData.items.map((item, index) => (
+              <div className="item" key={index}>
+                <div className="item-name">{item.name}</div>
+                <img 
+                  src={item.name.includes('Shield') ? bronzeShield : bronzeSword} 
+                  alt={item.name} 
+                  className="item-image" 
+                />
+                <div className="item-qty">Qty: {item.quantity}</div>
+                <div className="item-price">Price: P {item.price.toFixed(2)}</div>
               </div>
             ))}
           </div>
+          
+          <div className="order-total">
+            <h3>Order Total ({orderData.items.length} items):</h3>
+            <div className="total-line">
+              <span>Merchandise Subtotal</span>
+              <span>P {orderData.subtotal.toFixed(2)}</span>
+            </div>
+            <div className="total-line">
+              <span>Shipping Subtotal</span>
+              <span>P {orderData.shipping.toFixed(2)}</span>
+            </div>
+            <div className="total-line discount-line">
+              <span>Promo Code Discount</span>
+              <span>- P {orderData.discountAmount.toFixed(2)}</span>
+            </div>
+            <div className="total-line final-total">
+              <span>Total Payment:</span>
+              <span>P {orderData.total.toFixed(2)}</span>
+            </div>
+          </div>
         </div>
-
-        <div className="action-buttons">
-          <button onClick={handlePrint} className="print-button">
+        
+        <div className="order-actions">
+          <button className="action-btn print-btn" onClick={handlePrintOrder}>
             Print Order Details
           </button>
-          <button onClick={handleCancelOrder} className="cancel-button">
+          <button className="action-btn track-btn" onClick={handleTrackOrder}>
+            Track My Order
+          </button>
+          <button className="action-btn cancel-btn" onClick={handleCancelOrder}>
             Cancel Order
           </button>
         </div>
-
-        <div className="additional-info">
-          <h3>Order Support</h3>
-          <ul>
-            <li>About Us</li>
-            <li>Contact Us</li>
-            <li>Terms of Use</li>
-            <li>We serve</li>
-          </ul>
-        </div>
-      </main>
-
+      </div>
+      
       <Footer />
+      
+      {isCanceled && (
+        <div className="cancel-notification">
+          Your Order Has Been Canceled
+        </div>
+      )}
     </div>
   );
 };
