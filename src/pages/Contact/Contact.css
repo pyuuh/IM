@@ -81,6 +81,7 @@
   color: white;
   border-radius: 4px;
   resize: none;
+  image-rendering: pixelated; 
 }
 
 .contact-form textarea {
@@ -95,7 +96,7 @@
   color: white;
   border-radius: 20px;
   cursor: pointer;
-  width: 90%; /* Makes the button stretch across the form */
+  width: 90%;
   align-self: center;
 }
 
@@ -159,5 +160,6 @@
   .contact-info {
     width: 100%;
     margin-bottom: 20px;
+    border: 12px solid transparent; 
   }
 }

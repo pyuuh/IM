@@ -19,13 +19,13 @@
 .vision-box,
 .contact-box,
 .social-box {
-  border: 12px solid transparent; /* thickness of your pixel border */
+  border: 12px solid transparent; 
   border-image: url('../../assets/bg2.png') 12 round;
-  image-rendering: pixelated; /* keeps border crisp */
+  image-rendering: pixelated;
   background-color: rgba(62, 67, 46, 0.52);
-  border-radius: 10px; /* optional */
+  border-radius: 10px; 
   padding: 20px;
-  text-align: center; /* Default text center for these containers */
+  text-align: center; 
 }
 
 .about-main {
@@ -76,13 +76,13 @@
 .contact-box {
   flex: 1;
   min-width: 280px;
-  text-align: left; /* left align contact details text */
+  text-align: left;
 }
 
 .social-box {
   flex: 1;
   min-width: 280px;
-  text-align: center; /* center container */
+  text-align: center;
 }
 
 .contact-list {
@@ -98,7 +98,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
-  justify-items: center; /* centers each social item horizontally */
+  justify-items: center;
   margin-top: 10px;
 }
 
@@ -152,7 +152,7 @@
   }
 
   .about-socials {
-    grid-template-columns: 1fr; /* stack social items vertically on small screens */
+    grid-template-columns: 1fr;
   }
 
   .contact-list {

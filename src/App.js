@@ -9,6 +9,7 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Search from './components/Header/Search/Search';
 import ShoppingCart from './pages/ShoppingCart/ShoppingCart';
+import List from './pages/List/List.js';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/Contact" element={<Contact />} />
         <Route path="/Search" element={<Search />} />
         <Route path="/ShoppingCart" element={<ShoppingCart />} />
+        <Route path="/List" element={<List />} />
       </Routes>
 
       <Footer />

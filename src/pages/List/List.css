@@ -1,0 +1,115 @@
+/* BlacksmithsList.css */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-image: url('../../assets/bg2.png');
+  color: white;
+}
+
+.container {
+  padding: 50px;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 32px;
+  font-size: 1.8rem;
+}
+
+/* 2-column, 3-row layout */
+.grid.fixed-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(300px, 1fr));
+  gap: 20px;
+  justify-content: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Horizontal card layout */
+.card.horizontal {
+  display: flex;
+  background-color: #404932;
+  padding: 16px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  gap: 16px;
+  align-items: flex-start;
+  min-height: 180px;
+  
+  border: 12px solid transparent; 
+  border-image: url('../../assets/bg2.png') 12 round;
+  image-rendering: pixelated;
+  background-color: rgba(62, 67, 46, 0.52);
+  border-radius: 10px; 
+  padding: 20px;
+  text-align: center;
+}
+
+/* Left side: image + rating below */
+.image-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Profile picture */
+.profile-image {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 6px;
+}
+
+/* Right side: name, title, description */
+.info {
+  flex: 1;
+  text-align: left;
+}
+
+.info h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.title {
+  font-style: italic;
+  margin: 4px 0 10px;
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+/* Rating below image */
+.rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+.star {
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  background-color: #ddd;
+  border-radius: 50%;
+  margin-right: 3px;
+}
+
+.star.filled {
+  background-color: #ffcf48;
+}
+
+.star.half {
+  background: linear-gradient(to right, #ffcf48 50%, #ddd 50%);
+  background-size: 100% 100%;
+  border-radius: 50%;
+}
+
+.rating-value {
+  margin-left: 6px;
+  font-weight: bold;
+  font-size: 0.85rem;
+}
