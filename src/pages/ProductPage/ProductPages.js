@@ -171,7 +171,7 @@ const ProductPage = () => {
                   <p className="product-type">{product.type}</p>
                   <div className="product-rating">
                     {renderStarRating(product.rating)}
-                    <span>({Math.round(product.rating * 10)} reviews)</span>
+                    <span className="review-count">({Math.round(product.rating * 10)} reviews)</span>
                   </div>
                   <p className="product-price">₱ {product.price.toLocaleString()}</p>
                 </div>
