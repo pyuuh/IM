@@ -1,4 +1,4 @@
-// src/pages/ProductPage/ProductPage.js
+
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './ProductPage.css';
@@ -21,7 +21,7 @@ const ProductPage = () => {
       titanium: false
     }
   });
-
+      
   useEffect(() => {
     filterProducts();
   }, [filters]);
@@ -69,26 +69,6 @@ const ProductPage = () => {
 
   return (
     <div className="products-page">
-      <div className="header">
-        <div className="logo">
-          <img src="/logo.png" alt="Metalworks Logo" />
-          <span>Metalworks | Products</span>
-        </div>
-        <div className="header-right">
-          <div className="search-bar">
-            <input type="text" placeholder="Search..." />
-            <button className="search-button">🔍</button>
-          </div>
-          <button className="favorites-button">Favorites</button>
-          <div className="user-profile">
-            <img src="/user-profile.png" alt="User Profile" />
-          </div>
-          <div className="settings">
-            <img src="/settings.png" alt="Settings" />
-          </div>
-        </div>
-      </div>
-
       <div className="products-container">
         <h1>Our Products</h1>
         
@@ -184,7 +164,7 @@ const ProductPage = () => {
             {products.map(product => (
               <div className="product-card" key={product.id}>
                 <div className="product-image">
-                  {/* Placeholder for product image */}
+                  <img src={product.image} alt={product.name} />
                 </div>
                 <div className="product-info">
                   <h4>{product.name}</h4>
