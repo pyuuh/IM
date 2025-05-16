@@ -1,4 +1,80 @@
 /* Add these styles to your existing Login.css file */
+@font-face {
+  font-family: 'MyFont';
+  src: url('../../assets/font/static/PixelifySans-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.character-container {
+  position: absolute;
+  bottom: 7rem;
+  left: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 1;
+}
+
+.character-bubble {
+  background-image: url('../../assets/bubble.png');
+  background-size: 100% 100%;  /* Makes the image cover the entire element */
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 1rem;
+  position: relative;
+  margin-bottom: 1rem;
+  width: 100%;
+  height: 100px;
+  animation: bobbing 2s infinite ease-in-out;
+}
+
+.character-bubble p {
+  margin-right: 10px;
+}
+
+@keyframes bobbing {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+.character-bubble:after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 20px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+}
+
+.character-bubble p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.bubble-footnote {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  margin-top: 0.5rem;
+}
+
+.pixel-character {
+  width: 160px;
+  height: 160px;
+  background-image: url('../../assets/guide.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .welcome-message {
+    font-size: 2rem;
+  }
+}
+
 .password-container {
   position: relative;
   display: flex;
@@ -49,21 +125,29 @@
   border-bottom: 8px solid #fff;
 }
 
-.login-container {
+.signup-container {
+  width: 100%;
+  background-image: url('../../assets/bg1.png');
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  min-height: 100vh;
-  padding: 32px 16px;
+  justify-content: center;
+  padding: 2rem 0;
+  position: relative;
+  min-height: 600px;
+  font-family: 'MyFont', sans-serif;
+  image-rendering: pixelated;
 }
 
 .login-card {
-  width: 100%;
-  max-width: 400px;
-  padding: 24px;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-image: url('../../assets/textbox.PNG');
+  background-repeat: no-repeat;        
+  background-size: cover;              
+  background-position: center; 
+  padding: 1.5rem;
+  width: 46%;
+  position: relative;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);;
 }
 
 .login-title {

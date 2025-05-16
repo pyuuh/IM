@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Signup.css';
 
@@ -15,6 +15,9 @@ const Signup = () => {
   const [lastNameError, setLastNameError] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
+
+     const [isBubbleVisible, setIsBubbleVisible] = useState(true); // 🟢 Bubble state
+    useDismissBubble(setIsBubbleVisible);
 
   const validateForm = () => {
     let isValid = true;
@@ -96,6 +99,19 @@ const Signup = () => {
     }
   };
 
+  function useDismissBubble(setVisible) {
+    useEffect(() => {
+      const handleClick = () => {
+        setVisible(false);
+      };
+  
+      document.addEventListener('click', handleClick);
+      return () => {
+        document.removeEventListener('click', handleClick);
+      };
+    }, [setVisible]);
+  }
+
   return (
     <div className="signup-container">
       <div className="signup-card">
@@ -172,7 +188,17 @@ const Signup = () => {
           </div>
         </form>
       </div>
+      <div className="character-container">
+        {isBubbleVisible && (
+          <div className="character-bubble">
+            <p>Login to discover great items!</p>
+            <p className="bubble-footnote">Click anywhere to exit.</p>
+          </div>
+        )}
+        <div className="pixel-character"></div>
+      </div>
     </div>
+
   );
 };
 
