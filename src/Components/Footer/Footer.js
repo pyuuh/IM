@@ -34,7 +34,7 @@ const Footer = () => {
               <FaLinkedin />
             </a>
           </div>
-          <p className="copyright">Copyright @2024 Blacksmith.</p>
+          <p className="copyright">© 2024 Blacksmith.</p>
         </div>
 
         {/* Right column - Payments */}

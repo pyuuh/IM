@@ -2,7 +2,7 @@ import React from 'react';
 import './ot.css';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../Components/Header/Header.js';
-import Footer from '../../Components/Footer/Footer.js';
+
 
 const TrackOrder = () => {
   const navigate = useNavigate();
@@ -47,7 +47,7 @@ const TrackOrder = () => {
           </div>
         </div>
       </div>
-      <Footer />
+      
     </div>
   );
 };

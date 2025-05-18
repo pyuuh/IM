@@ -1,6 +1,5 @@
 import React from 'react';
 import './Contact.css';
-
 import locationIcon from './Contactassets/location.svg';
 import callIcon from './Contactassets/call.svg';
 

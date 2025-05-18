@@ -13,6 +13,7 @@ import Contact from './pages/Contact/Contact.js';
 import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
 import Search from './Components/Header/Search/Search';
+import List from './pages/List/List.js';
 
 import ProductPage from './pages/ProductPage/ProductPages.js';
 import ProductDetails from './pages/ProductDetail/ProductDetails.js';
@@ -23,34 +24,42 @@ import FAQ from './pages/FAQ/Faq.js';
 import TermsAndConditions from './pages/TermsAndConditions/TermsAndConditions.js';
 import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy.js';
 
+import './App.css'; // <- make sure this line is included for the global styles
 
 function App() {
   return (
     <Router>
-      <Header />
-      
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/Signup" element={<Signup />} />
-        <Route path="/checkout" element={<CheckoutPage />} />
-        <Route path="/orderconfirm" element={<OrderConfirmPage />} />
-        <Route path="/ordertracking" element={<OrderTrackingPage />} />
-        <Route path="/Footer" element={<Footer />} />
-        <Route path="/About" element={<About />} />
-        <Route path="/Contact" element={<Contact />} />
-        <Route path="/Search" element={<Search />} />
-        <Route path="/product" element={<ProductPage />} />
-        <Route path="/productdetails/:id" element={<ProductDetails />} />
-        <Route path="/ShoppingCart" element={<ShoppingCart />} />
-        <Route path="/Dashboard" element={<Dashboard />} />
-        <Route path="/FAQ" element={<FAQ />} />
-        <Route path="/TermsAndConditions" element={<TermsAndConditions />} />
-        <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
+      <div className="app-layout">
+        <Header />
 
-      </Routes>
+        <main className="page-content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/Signup" element={<Signup />} />
 
-      <Footer />
+            <Route path="/checkout" element={<CheckoutPage />} />
+            <Route path="/orderconfirm" element={<OrderConfirmPage />} />
+            <Route path="/ordertracking" element={<OrderTrackingPage />} />
+
+            <Route path="/Footer" element={<Footer />} />
+            <Route path="/About" element={<About />} />
+            <Route path="/Contact" element={<Contact />} />
+            <Route path="/Search" element={<Search />} />
+            <Route path="/List" element={<List />} />
+
+            <Route path="/product" element={<ProductPage />} />
+            <Route path="/productdetails/:id" element={<ProductDetails />} />
+            <Route path="/ShoppingCart" element={<ShoppingCart />} />
+            <Route path="/Dashboard" element={<Dashboard />} />
+            <Route path="/FAQ" element={<FAQ />} />
+            <Route path="/TermsAndConditions" element={<TermsAndConditions />} />
+            <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
+          </Routes>
+        </main>
+
+        <Footer />
+      </div>
     </Router>
   );
 }

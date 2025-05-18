@@ -40,6 +40,7 @@ const PrivacyPolicy = () => {
           parties agree to keep this information confidential.
         </p>
       </div>
+      
     </div>
   );
 };

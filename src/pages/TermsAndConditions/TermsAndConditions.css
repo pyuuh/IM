@@ -1,4 +1,53 @@
-/* Checkbox row */
+
+.terms-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-image: url('../../assets/bg2.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: 'VT323', monospace;
+}
+
+/* Main content grows to fill space above footer */
+.terms-container {
+  flex: 1;
+  padding: 40px 20px;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for text contrast */
+  color: #f7f1f1;
+}
+
+/* Header */
+.terms-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #f7f1f1;
+}
+
+/* Terms content */
+.terms-content {
+  font-size: 1.3rem;
+  line-height: 1.8;
+}
+
+.terms-content h2 {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-size: 1.6rem;
+  color: #f7f1f1;
+}
+
+.terms-content ul {
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.terms-content li {
+  margin-bottom: 10px;
+}
+
+/* --- Checkbox Row --- */
 .checkbox-row {
   display: flex;
   align-items: flex-start;
@@ -33,5 +82,21 @@
   font-size: 1.3rem;
   color: #f7f1f1;
   line-height: 1.8;
+}
+
+/* --- Link look --- */
+.link {
+  color: #a0e4ff;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* --- Footer --- */
+footer {
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #f7f1f1;
+  text-align: center;
+  font-size: 1.2rem;
   font-family: 'VT323', monospace;
 }

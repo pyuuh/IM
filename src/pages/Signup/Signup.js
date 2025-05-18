@@ -4,6 +4,7 @@ import './Signup.css';
 import textboxImage from '../../assets/textbox.PNG';
 
 
+
 const Signup = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');

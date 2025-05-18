@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './Home.css';
+
 import ironShieldImage from '../../assets/iron_shield.png';
 import steelArmorImage from '../../assets/steel_armor.png';
 import steelSwordImage from '../../assets/steel_sword.png';
@@ -8,11 +9,12 @@ import deborahImage from '../../assets/deborah.png';
 import jereveImage from '../../assets/jereve.png';
 import character from '../../assets/guide.png';
 import icon from '../../assets/icon.jpg';
+import { useNavigate } from 'react-router-dom'; // Make sure to import this
 
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState('Services');
+  const navigate = useNavigate(); // Initialize navigate
 
-  // Centralized image assets - now properly imported
   const images = {
     icons: {
       services: icon,
@@ -33,32 +35,10 @@ export default function Dashboard() {
     heroBanner: "/api/placeholder/1200/300"
   };
 
-  // Mock data with image references
   const dealItems = [
-    { 
-      id: 1, 
-      title: 'IRON SHIELD', 
-      price: '$45.99', 
-      description: 'Forged with precision for warriors', 
-      onSale: true,
-      image: images.deals.ironShield
-    },
-    { 
-      id: 2, 
-      title: 'STEEL ARMOR', 
-      price: '$62.50', 
-      description: 'Protective gear for brave fighters', 
-      onSale: true,
-      image: images.deals.steelArmor
-    },
-    { 
-      id: 3, 
-      title: 'STEEL SWORD', 
-      price: '$89.99', 
-      description: 'Legendary weapon for champions', 
-      onSale: true,
-      image: images.deals.steelSword
-    },
+    { id: 1, title: 'IRON SHIELD', price: '$45.99', description: 'Forged with precision for warriors', onSale: true, image: images.deals.ironShield },
+    { id: 2, title: 'STEEL ARMOR', price: '$62.50', description: 'Protective gear for brave fighters', onSale: true, image: images.deals.steelArmor },
+    { id: 3, title: 'STEEL SWORD', price: '$89.99', description: 'Legendary weapon for champions', onSale: true, image: images.deals.steelSword },
   ];
 
   const blacksmiths = [
@@ -67,16 +47,15 @@ export default function Dashboard() {
     { id: 3, name: 'Dwarven Artisan', image: images.blacksmiths.jereve },
   ];
 
-  // Tab configuration with icons
   const tabs = [
-    { name: 'Services', icon: images.icons.icon },
-    { name: 'Events', icon: images.icons.icon },
-    { name: 'Promos', icon: images.icons.icon },
+    { name: 'Services', icon: images.icons.services },
+    { name: 'Events', icon: images.icons.events },
+    { name: 'Promos', icon: images.icons.promos },
   ];
 
   return (
     <div className="dashboard">
-      {/* Hero Section with background image */}
+      {/* Hero Section */}
       <div className="hero-section" style={{ backgroundImage: `url(${images.heroBanner})` }}>
         <div className="hero-main">
           <h2 className="hero-title">Forge Ahead with the Best Gear</h2>
@@ -90,7 +69,7 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* Navigation Tabs with icons */}
+      {/* Navigation Tabs */}
       <div className="nav-tabs">
         {tabs.map((tab) => (
           <button
@@ -106,7 +85,7 @@ export default function Dashboard() {
         ))}
       </div>
 
-      {/* Best Deals Section */}
+      {/* Best Deals */}
       <div className="section">
         <h3 className="section-title">Best Deals</h3>
         <div className="deals-grid">
@@ -122,12 +101,16 @@ export default function Dashboard() {
                 <div className="deal-price-row">
                   <span className="deal-price">{item.price}</span>
                   <button className="buy-button" onClick={() => navigate('/productdetail')}>
-                        VIEW DEAL
-                    </button>
-                    </div>
-                    
+                    VIEW DEAL
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
 
-      {/* Top Blacksmiths Section */}
+      {/* Top Blacksmiths */}
       <div className="blacksmiths-section">
         <h3 className="section-title">Top Blacksmiths</h3>
         <div className="blacksmiths-grid">
@@ -145,7 +128,7 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* Features Section */}
+      {/* Features */}
       <div className="features-section">
         <div className="feature">
           <h4 className="feature-title">Your trusted forge for heavy and crafting with skill.</h4>
@@ -156,7 +139,7 @@ export default function Dashboard() {
           <p className="limited-deals-text">Expires in 12h 24m 45s!</p>
         </div>
       </div>
+     
     </div>
-    </div>
-
-)};
+  );
+}

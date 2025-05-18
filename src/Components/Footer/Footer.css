@@ -5,21 +5,20 @@
   font-style: normal;
 }
 
-body {
-  background-color: black;
-}
-
 .footer-container {
   font-family: 'MyFont';
   width: 100%;
   color: rgb(255, 255, 255);
   display: flex;
   justify-content: center;
-  position: relative;
-  z-index: 1;
-  background-color: transparent;
+  position: relative; /* Overlay footer */
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  background-color: #813D12; /* Transparent background */
   padding: 0;
   margin: 0;
+  pointer-events: none; /* Allow clicks to pass through if needed */
 }
 
 .footer-content {
@@ -28,12 +27,11 @@ body {
   align-items: flex-start;
   max-width: 1200px;
   width: 100%;
-  padding: 5px;
+  padding: 10px 20px;
   margin: 0;
   background-color: transparent;
+  pointer-events: auto; /* Enable interactions inside footer */
 }
-
-
 
 /* Left: Links section */
 .footer-links {
@@ -93,7 +91,6 @@ body {
   font-size: 14px;
 }
 
-/* Make sure icons display correctly */
 .payment-section img {
   width: 24px;
   height: 24px;
